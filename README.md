@@ -51,6 +51,7 @@ Run Dev Server (Port 5500)
 	- [x] Install **Webpack** using `npm install webpack webpack-cli --save-dev`.
 	- [x] Add a `webpack.config.js` file and setup project directory.
 	- [x] Ran `npx webpack --watch` command to make sure webpack setup is successful.
+	- [x] Install **Babel** using `npm install --save-dev babel-jest @babel/core @babel preset-env` command. Configure **Babel** by creating a `babel.config.js` file.
  
 
 2. ### Create Game Logic
