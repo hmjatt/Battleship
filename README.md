@@ -93,7 +93,11 @@ Run Dev Server (Port 5500)
 
 ## Future Changes/Fixes
 
+1. Polish the intelligence of computer and allow it to place adjacent slots after getting a `hit`.
 
+2. Create a 2 player option
+	- Let users take turn by passing the device back and forth.
+	- implement a `pass device` screen so players don't see each other's boards!
 
 
 #### Quote
