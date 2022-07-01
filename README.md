@@ -47,10 +47,11 @@ Run Dev Server (Port 5500)
 ## Steps I followed to complete this project
 
 1. ### Initialialize Environment Setup
-	- [x] Install `npm` using `npm init -y` to skip questions.
-	- [x] Install `webpack` using `npm install webpack webpack-cli --save-dev`.
-	- [x] Add a `webpack.config.js` configuration file and setup project directory. 
-
+	- [x] Install **NPM** using `npm init -y` to skip questions.
+	- [x] Install **Webpack** using `npm install webpack webpack-cli --save-dev`.
+	- [x] Add a `webpack.config.js` file and setup project directory.
+	- [x] Ran `npx webpack --watch` command to make sure webpack setup is successful.
+ 
 
 2. ### Create Game Logic
 
