@@ -44,7 +44,7 @@ Run Dev Server (Port 5500)
 
 	```
 
-### Links to content that helped me with this project
+## Links to content that helped me with this project
 
 1. The Odin Project
 	- [Project: Battleship](https://www.theodinproject.com/lessons/node-path-javascript-battleship)
@@ -79,7 +79,7 @@ Run Dev Server (Port 5500)
 	
 
 
-## Steps I followed to complete this project ->
+## Steps I followed to complete this project
 
 1. ### Initialialize Environment Setup
 	- [x] Install `npm` using `npm init -y` to skip questions.
@@ -87,14 +87,14 @@ Run Dev Server (Port 5500)
 	- [x] Add a `webpack.config.js` configuration file and setup project directory. 
 
 
-2. `Create Game Logic`
+2. ### Create Game Logic
 
-3. `Test Game Logic`
+3. ### Test Game Logic
 
-4. `Repeat Step 3 and 4` 
+4. ### Repeat Step 3 and 4
 	- Make sure all tests pass.
 
-5. `Finish Environment Setup`
+5. ### Finish Environment Setup
 	- [ ] Use source maps.
 	- [ ] Load Assets.
 		- [ ] CSS
@@ -105,9 +105,9 @@ Run Dev Server (Port 5500)
 		- [ ] Setup favicon
 	- [ ] Update `webpack.config.js` file to finish environment setup.
 
-6. `Create UI`
+6. ### Create UI
 
-7. `Finish It Up`
+7. ### Finish the game
 	- Allow users to place their ships
 	- Use coordinates for each ship or implement drag/drop of ships.
 
