@@ -1,0 +1,20 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "A JavaScript game based on a classic \"Battleship\" game, implemented to practice Test Driven Development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmjatt/Battleship.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hmjatt/Battleship/issues"
+  },
+  "homepage": "https://github.com/hmjatt/Battleship#readme"
+}

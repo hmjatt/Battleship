@@ -75,7 +75,8 @@ Run Dev Server (Port 5500)
 ### Steps I followed to complete this project ->
 
 1. `Setup Environment`
-	-
+	- Install `npm` using `npm init -y` to skip questions.
+	- 
 
 2. `Create Game Logic`
 
