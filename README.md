@@ -72,9 +72,27 @@ Run Dev Server (Port 5500)
 	
 ## Notes/Remarks
 
+### Steps I followed to complete this project :-
+
+1. `Setup Environment`
+	-
+
+2. `Create Game Logic`
+
+3. `Test Game Logic`
+
+4. `Repeat Step 3 and 4` 
+	- Make sure all tests pass.
+
+5. `Create UI`
+
+6. `Finish It Up`
+	- Allow users to place their ships
+	- Use coordinates for each ship or implement drag/drop of ships.
 
 
 ## Future Changes/Fixes
+
 
 
 
