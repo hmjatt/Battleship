@@ -5,7 +5,7 @@ A JavaScript game based on a classic "Battleship" game, implemented to practice 
 <!-- ![This is an image]() -->
 
 
-This project is created to practice Test Driven Development(TDD) in JavaScript by creating a Battleship game using Jest(JS Testing Framework). Babel and Webpack are also used in this project :milky_way: Feel free to reach me at [Twitter](https://twitter.com/hmjatt/) :wave:
+This project is created to practice Test Driven Development(TDD) in JavaScript by creating a Battleship game using Jest(JS Testing Framework). Babel and Webpack are also used in this project :milky_way: Feel free to reach me at [Twitter](https://twitter.com/hmjatt/) :flying_disc:
 
 <!-- [Live Preview](https://hmjatt.github.io/Battleship/) -->
 
@@ -80,7 +80,7 @@ Run Dev Server (Port 5500)
 
 #### Quote
 
-    “Keep your eyes on the stars, and your feet on the ground.”
-    — Theodore Roosevelt
+    “It always seems impossible until it's done.”
+    — Nelson Mandela
 >  	
-> :night_with_stars: :earth_asia: :beetle:
+> :ship: :dart: :fireworks:
