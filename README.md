@@ -19,6 +19,7 @@ This project is created to practice Test Driven Development(TDD) in JavaScript b
 	- Jest
 	- Babel Loader
 	- Webpack
+	- Test Driven Development(TDD)
 
 
 ## Usage
@@ -61,7 +62,10 @@ Run Dev Server (Port 5500)
 4. Design Inspiration
 	- [Dribbble(Phil Goodwin)](https://dribbble.com/shots/15367230)
 
-5. Others
+7. Webpack
+	- [Getting Started](https://webpack.js.org/guides/getting-started/)
+
+6. Others
 	- [Play Battleship Game](https://learnteachcode.org/Battleship-JavaScript/)
 	- [What are Pure Functions](https://medium.com/@jamesjefferyuk/javascript-what-are-pure-functions-4d4d5392d49c)
 	- [Measuring Software Quality](https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4)
@@ -76,7 +80,7 @@ Run Dev Server (Port 5500)
 
 1. `Setup Environment`
 	- Install `npm` using `npm init -y` to skip questions.
-	- 
+	- Install `webpack` using `npm install webpack webpack-cli --save-dev`
 
 2. `Create Game Logic`
 
