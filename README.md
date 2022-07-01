@@ -59,7 +59,7 @@ Run Dev Server (Port 5500)
 	- [Mock Functions](https://jestjs.io/docs/mock-functions)
 
 4. Design Inspiration
-
+	- [Dribbble(Phil Goodwin)](https://dribbble.com/shots/15367230)
 
 5. Others
 	- [Play Battleship Game](https://learnteachcode.org/Battleship-JavaScript/)
