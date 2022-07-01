@@ -20,6 +20,9 @@ This project is created to practice Test Driven Development(TDD) in JavaScript b
 	- Babel Loader
 	- Webpack
 	- Test Driven Development(TDD)
+	- Source Maps
+	- Html Webpack Plugin
+	- Css/Asset Resource Loader
 
 
 ## Usage
@@ -78,9 +81,11 @@ Run Dev Server (Port 5500)
 
 ### Steps I followed to complete this project ->
 
-1. `Setup Environment`
-	- Install `npm` using `npm init -y` to skip questions.
-	- Install `webpack` using `npm install webpack webpack-cli --save-dev`
+1. #### Initialialize Environment Setup
+	- [x] Install `npm` using `npm init -y` to skip questions.
+	- [x] Install `webpack` using `npm install webpack webpack-cli --save-dev`.
+	- [x] Add a `webpack.config.js` configuration file and setup project directory. 
+
 
 2. `Create Game Logic`
 
@@ -89,9 +94,20 @@ Run Dev Server (Port 5500)
 4. `Repeat Step 3 and 4` 
 	- Make sure all tests pass.
 
-5. `Create UI`
+5. `Finish Environment Setup`
+	- [] Use source maps.
+	- [] Load Assets.
+		- [] CSS
+		- [] Images
+	- [] Setup HtmlWebpackPlugin
+		- [] Clean up the `/dist` folder
+		- [] Setup template.html
+		- [] Setup favicon
+	- [] Update `webpack.config.js` file to finish environment setup.
 
-6. `Finish It Up`
+6. `Create UI`
+
+7. `Finish It Up`
 	- Allow users to place their ships
 	- Use coordinates for each ship or implement drag/drop of ships.
 
