@@ -53,6 +53,8 @@ Run Dev Server (Port 5500)
 	- [x] Run `npx webpack --watch` command to make sure webpack setup is successful.
 	- [x] Install **Babel** using `npm install --save-dev babel-jest @babel/core @babel preset-env` command. Configure **Babel** by creating a `babel.config.js` file.
 	- [x] Install **Jest** using `npm install --save-dev jest` command.
+	- [x] Create a sample *test* using [Jest](https://jestjs.io/docs/getting-started) documentation. Configure **Jest** by adding `"test": "jest"` line to `package.json` file.
+	- [] Run `npm test` command to make sure the test passes and everything is configured correctly so far.
 
 2. ### Create Game Logic
 
