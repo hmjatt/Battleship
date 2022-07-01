@@ -44,6 +44,39 @@ Run Dev Server (Port 5500)
 
 	```
 
+## Steps I followed to complete this project
+
+1. ### Initialialize Environment Setup
+	- [x] Install `npm` using `npm init -y` to skip questions.
+	- [x] Install `webpack` using `npm install webpack webpack-cli --save-dev`.
+	- [x] Add a `webpack.config.js` configuration file and setup project directory. 
+
+
+2. ### Create Game Logic
+
+3. ### Test Game Logic
+
+4. ### Repeat Step 3 and 4
+	- Make sure all tests pass.
+
+5. ### Finish Environment Setup
+	- [ ] Use source maps.
+	- [ ] Load Assets.
+		- [ ] CSS
+		- [ ] Images
+	- [ ] Setup HtmlWebpackPlugin
+		- [ ] Clean up the `/dist` folder
+		- [ ] Setup template.html
+		- [ ] Setup favicon
+	- [ ] Update `webpack.config.js` file to finish environment setup.
+
+6. ### Create UI
+
+7. ### Finish the game
+	- [ ] Allow users to place their ships
+	- [ ] Use coordinates for each ship or implement drag/drop of ships.
+
+
 ## Links to content that helped me with this project
 
 1. The Odin Project
@@ -74,42 +107,6 @@ Run Dev Server (Port 5500)
 	- [Measuring Software Quality](https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4)
 	- [Too Much Mocking is Bad](https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a)
 
-	
-
-	
-
-
-## Steps I followed to complete this project
-
-1. ### Initialialize Environment Setup
-	- [x] Install `npm` using `npm init -y` to skip questions.
-	- [x] Install `webpack` using `npm install webpack webpack-cli --save-dev`.
-	- [x] Add a `webpack.config.js` configuration file and setup project directory. 
-
-
-2. ### Create Game Logic
-
-3. ### Test Game Logic
-
-4. ### Repeat Step 3 and 4
-	- Make sure all tests pass.
-
-5. ### Finish Environment Setup
-	- [ ] Use source maps.
-	- [ ] Load Assets.
-		- [ ] CSS
-		- [ ] Images
-	- [ ] Setup HtmlWebpackPlugin
-		- [ ] Clean up the `/dist` folder
-		- [ ] Setup template.html
-		- [ ] Setup favicon
-	- [ ] Update `webpack.config.js` file to finish environment setup.
-
-6. ### Create UI
-
-7. ### Finish the game
-	- Allow users to place their ships
-	- Use coordinates for each ship or implement drag/drop of ships.
 
 
 ## Notes/Remarks
