@@ -1,10 +1,10 @@
 const ship = {
 	/**
-	 * A Ship is an array with all (x, y) coordinates of the ship:
-	 *
-	 * e.g.
-	 * [
-	 *	{'x':2, 'y':2},
+	* A Ship is an array with all (x, y) coordinates of the ship:
+	*
+	* e.g.
+	* [
+	*	{'x':2, 'y':2},
 	*	{'x':3, 'y':2},
 	*	{'x':4, 'y':2}
 	* ]
@@ -12,7 +12,20 @@ const ship = {
 
 	//////////////// test code from here /////////////
 
-	//create gameGrid() helper function that generates a grid(array) of 10 x 10
+	/*create gameGrid() helper function that generates a grid(array of arrays)
+	* it is a 2 dimensional array of 10 x 10
+	* e.g.
+	* [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+	*/
 	gameGrid() {
 
 		let gridArray = [];
