@@ -2,12 +2,22 @@ const ship = {
 
 	//////////////// test code from here /////////////
 
-	//create gameGrid() helper function that generates a grid of 10 x 10
+	//create gameGrid() helper function that generates a grid(array) of 10 x 10
+	gameGrid() {
+		let gridArray = [];
+
+		for(let i = 0; i < (10 * 10); i++) {
+			 gridArray.push([i]);
+		}
+
+		return gridArray;
+	}
 
 	// create a random ship size variable
 
 	//create placeShip() helper function that takes grid, size of ship
 	// places a ship at a random position on grid, outputs ships co-ordinates
+	// co-ordinates start at 00 end at 99
 
 
 	//////////// test code till here /////////////
