@@ -58,6 +58,8 @@ Run Dev Server (Port 5500)
 	- [x] Run `npm test` command to make sure the test passes and everything is configured correctly so far(PASSED).
 
 2. ### Create Game Logic
+	- [ ] Create `ship.js` module which contains `ship` factory function
+	
 
 3. ### Test Game Logic
 
