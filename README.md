@@ -119,6 +119,7 @@ Run Dev Server (Port 5500)
 	- [What are Pure Functions](https://medium.com/@jamesjefferyuk/javascript-what-are-pure-functions-4d4d5392d49c)
 	- [Measuring Software Quality](https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4)
 	- [Too Much Mocking is Bad](https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a)
+	- [Nick Berry(Inspiration)](https://www.datagenetics.com/blog/december32011/)
 
 
 

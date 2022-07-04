@@ -12,14 +12,18 @@ const ship = {
 		}
 
 		return gridArray;
-		
-	}
+
+	},
 
 	// create a random ship size variable
+	shipSize : 4,
 
 	//create placeShip() helper function that takes grid, size of ship
 	// places a ship at a random position on grid, outputs ships co-ordinates
 	// co-ordinates start at 00 end at 99
+	placeShip(gridArray, shipSize) {
+		
+	}
 
 
 	//////////// test code till here /////////////
