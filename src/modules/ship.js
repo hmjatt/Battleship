@@ -1,4 +1,5 @@
 const ship = {
+
 	/**
 	* A Ship is an array with all (x, y) coordinates of the ship:
 	*
@@ -10,10 +11,10 @@ const ship = {
 	* ]
 	*/
 
-	//////////////// test code from here /////////////
+	
 
 	/*create gameGrid() helper function that generates a grid(array of arrays)
-	* it is a 2 dimensional array of 10 x 10
+	* it is a 2 dimensional array of 10 x 10 filled with 0's
 	* e.g.
 	* [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
 	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
@@ -30,16 +31,20 @@ const ship = {
 
 		let gridArray = [];
 
-		for(let i = 0; i < (10 * 10); i++) {
-			 gridArray.push([i]);
-		}
+		for (let i = 0; i < 10; i++) {
+			gridArray.push(new Array(10).fill(0));
+		  }
 
 		return gridArray;
 
 	},
 
-	// create a random ship size variable
-	shipSize : 4,
+	// create a random ship size variable which includes 
+	//array of objects with range of values [{2,2}, {3,2}, {4,2}]
+	//
+	shipSize : [{2,2}, {3,2}, {4,2}],
+
+	//////////////// test code from here /////////////
 
 	//create placeShip() helper function that takes grid, size of ship
 	// places a ship at a random position on grid, outputs ships co-ordinates
@@ -47,6 +52,8 @@ const ship = {
 	placeShip(gridArray, shipSize) {
 
 	}
+
+	
 
 
 	//////////// test code till here /////////////
