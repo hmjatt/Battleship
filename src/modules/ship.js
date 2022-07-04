@@ -4,6 +4,7 @@ const ship = {
 
 	//create gameGrid() helper function that generates a grid(array) of 10 x 10
 	gameGrid() {
+
 		let gridArray = [];
 
 		for(let i = 0; i < (10 * 10); i++) {
@@ -11,6 +12,7 @@ const ship = {
 		}
 
 		return gridArray;
+		
 	}
 
 	// create a random ship size variable
