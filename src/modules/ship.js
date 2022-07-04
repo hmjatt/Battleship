@@ -1,12 +1,18 @@
 const ship = {
 
-	
-	//create shipPosition() helper function that takes
-	// it should take two things [start, end] output and where on the board it is
+	//////////////// test code from here /////////////
 
-	//create a shipLength() helper function that outputs ship's length
-	// it should take output from shipPosition() function and should output how long 
-	// is the ship 
+	//create gameGrid() helper function that generates a grid of 10 x 10
+
+	// create a random ship size variable
+
+	//create placeShip() helper function that takes grid, size of ship
+	// places a ship at a random position on grid, outputs ships co-ordinates
+
+
+	//////////// test code till here /////////////
+
+
 
 	//create hit() helper function that takes a 
 	// number and then marks that position as ‘hit’
@@ -22,11 +28,11 @@ const ship = {
 	// Only methods or properties that are used outside of your ‘ship’ 
 	// object need unit tests.
 
-	// Your 'ships' method will be objects that include their length,
+	// Your 'ships' will be objects that include their length,
 	// where they’ve been hit and whether or not they’ve been sunk.
-	ships() {
+	// ships() {
 
-	}
+	// }
 
 };
 
