@@ -59,7 +59,13 @@ Run Dev Server (Port 5500)
 
 2. ### Create Game Logic
 	- [ ] Create `ship.js` module which contains `ship` factory function
-	
+		- [ ] `ships` will be objects that include their length, where they’ve been hit and whether or not they’ve been sunk.
+		- [ ] REMEMBER you only have to test your object’s public interface. Only methods or properties that are used outside of your `ship` object need unit tests.
+		- [ ] Ships should have a `hit()` function that takes a number and then marks that position as ‘hit’.
+		- [ ] `isSunk()` should be a function that calculates it based on their length and whether all of their positions are ‘hit’.
+
+	- [ ] Create `gameboard.js` module which contains `gameboard` factory function
+	- [ ] Create `player.js` module which contains `gameboard` factory function
 
 3. ### Test Game Logic
 
