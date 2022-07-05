@@ -59,6 +59,8 @@ Run Dev Server (Port 5500)
 
 2. ### Create Game Logic
 	- [ ] Create `ship.js` module which contains `ship` factory function
+		- [x] `gameGrid()` method - is an array of 100 elements
+		- [x] `ships()` method - is an array of objects which include their name, length and it's direction
 		- [ ] `ships` will be objects that include their length, where they’ve been hit and whether or not they’ve been sunk.
 		- [ ] REMEMBER you only have to test your object’s public interface. Only methods or properties that are used outside of your `ship` object need unit tests.
 		- [ ] Ships should have a `hit()` function that takes a number and then marks that position as ‘hit’.
@@ -69,7 +71,7 @@ Run Dev Server (Port 5500)
 
 3. ### Test Game Logic
 	- [ ] Test `ship.js` module
-		- [ ] Test `gameGrid()`	method 
+		- [x] Test `gameGrid()`	method 
 		- [ ] Test `shipArray` array of objects
 
 4. ### Repeat Step 3 and 4
