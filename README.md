@@ -68,8 +68,9 @@ Run Dev Server (Port 5500)
 	- [ ] Create `player.js` module which contains `gameboard` factory function
 
 3. ### Test Game Logic
-	- [ ] Test `gameGrid()`	method
-	- [ ] Test `shipArray` array of objects
+	- [ ] Test `ship.js` module
+		- [ ] Test `gameGrid()`	method 
+		- [ ] Test `shipArray` array of objects
 
 4. ### Repeat Step 3 and 4
 	- Make sure all tests pass.
