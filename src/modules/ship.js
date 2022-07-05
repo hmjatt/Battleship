@@ -13,8 +13,8 @@ const ship = {
 
 	
 
-	/*create gameGrid() helper function that generates a grid(array of arrays)
-	* it is a 2 dimensional array of 10 x 10 filled with 0's
+	/*create gameGrid() helper function that generates a grid
+	* it is a array of 10 x 10 elements(100) filled with 0's
 	* e.g.
 	* [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
 	* [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
@@ -42,7 +42,7 @@ const ship = {
 	// create a random ship size variable which includes 
 	//array of objects with range of values [{2,2}, {3,2}, {4,2}]
 	//
-	shipSize : [{2,2}, {3,2}, {4,2}],
+	// shipSize : [{2,2}, {3,2}, {4,2}],
 
 	//////////////// test code from here /////////////
 
