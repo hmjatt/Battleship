@@ -55,12 +55,12 @@ Run Dev Server (Port 5500)
 	- [x] Install **Babel** using `npm install --save-dev babel-jest @babel/core @babel preset-env` command. Configure **Babel** by creating a `babel.config.js` file.
 	- [x] Install **Jest** using `npm install --save-dev jest` command.
 	- [x] Create a sample *test* using [Jest](https://jestjs.io/docs/getting-started) documentation. Configure **Jest** by adding `"test": "jest"` line to `package.json` file.
-	- [x] Run `npm test` command to make sure the test passes and everything is configured correctly so far(PASSED).
+	- [x] Run `npm test` command to make sure the mock test passes and everything is configured correctly so far(PASSED).
 
 2. ### Create Game Logic
 	- [ ] Create `ship.js` module which contains `ship` factory function
 		- [x] `gameGrid()` method - is an array of 100 elements
-		- [x] `ships()` method - is an array of objects which include their name, length and it's direction
+		- [x] `ships()` method - is an array of objects which include ship's name, length and it's direction
 		- [ ] `ships` will be objects that include their length, where they’ve been hit and whether or not they’ve been sunk.
 		- [ ] REMEMBER you only have to test your object’s public interface. Only methods or properties that are used outside of your `ship` object need unit tests.
 		- [ ] Ships should have a `hit()` function that takes a number and then marks that position as ‘hit’.
