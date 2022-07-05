@@ -16,7 +16,7 @@ const ship = {
 	*/
 
 
-	//////////////// test code from here /////////////
+	
 
 	
 
@@ -50,7 +50,7 @@ const ship = {
 
 	},
 
-
+	//////////////// test code from here /////////////
 
 	/* create shipArray which is array of objects including ship's name, 
 	*	length and it's direction
@@ -125,6 +125,10 @@ const ship = {
 
 	//create hit() helper function that takes a 
 	// number and then marks that position as ‘hit’
+
+	hit(position) {
+		
+	}
 
 	//create isSunk() helper function should be a function that calculates it 
 	// based on their length and whether all of their positions are ‘hit’
