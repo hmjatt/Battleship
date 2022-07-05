@@ -71,44 +71,49 @@ const ship = {
 		}]
 	*/
 
-	shipArray : [
-		{
-			name: 'destroyer',
-			directions: [
-				[0, 1],
-				[0, this.width]
-			]
-		},
-		{
-			name: 'submarine',
-			directions: [
-				[0, 1, 2],
-				[0, this.width, this.width * 2]
-			]
-		},
-		{
-			name: 'cruiser',
-			directions: [
-				[0, 1, 2],
-				[0, this.width, this.width * 2]
-			]
-		},
-		{
-			name: 'battleship',
-			directions: [
-				[0, 1, 2, 3],
-				[0, this.width, this.width * 2, this.width * 3]
-			]
-		},
-		{
-			name: 'carrier',
-			directions: [
-				[0, 1, 2, 3, 4],
-				[0, this.width, this.width * 2, this.width * 3, this.width * 4]
-			]
-		},
-	],
+	ships() {
 
+		let shipArray = 
+
+			[
+				{
+					name: 'destroyer',
+					directions: [
+						[0, 1],
+						[0, this.width]
+					]
+				},
+				{
+					name: 'submarine',
+					directions: [
+						[0, 1, 2],
+						[0, this.width, this.width * 2]
+					]
+				},
+				{
+					name: 'cruiser',
+					directions: [
+						[0, 1, 2],
+						[0, this.width, this.width * 2]
+					]
+				},
+				{
+					name: 'battleship',
+					directions: [
+						[0, 1, 2, 3],
+						[0, this.width, this.width * 2, this.width * 3]
+					]
+				},
+				{
+					name: 'carrier',
+					directions: [
+						[0, 1, 2, 3, 4],
+						[0, this.width, this.width * 2, this.width * 3, this.width * 4]
+					]
+				},
+			]
+
+	},
 	
 
 	//////////// test code till here /////////////
