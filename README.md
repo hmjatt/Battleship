@@ -56,13 +56,13 @@ Run Dev Server (Port 5500)
 	- [x] Install **Jest** using `npm install --save-dev jest` command.
 	- [x] Create a sample *test* using [Jest](https://jestjs.io/docs/getting-started) documentation. Configure **Jest** by adding `"test": "jest"` line to `package.json` file.
 	- [x] Run `npm test` command to make sure the mock test passes and everything is configured correctly so far(PASSED).
-	- [ ] Use source maps.
-	- [ ] Load Assets.
-		- [ ] CSS
+	- [x] Use source maps.
+	- [x] Load Assets.
+		- [x] CSS
 		- [ ] Images
-	- [ ] Setup HtmlWebpackPlugin
-		- [ ] Clean up the `/dist` folder
-		- [ ] Setup template.html
+	- [x] Setup HtmlWebpackPlugin
+		- [x] Clean up the `/dist` folder
+		- [x] Setup template.html
 		- [ ] Setup favicon
 	- [ ] Update `webpack.config.js` file to finish environment setup.
 
