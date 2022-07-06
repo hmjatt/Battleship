@@ -58,21 +58,20 @@ Run Dev Server (Port 5500)
 	- [x] Run `npm test` command to make sure the mock test passes and everything is configured correctly so far(PASSED).
 
 2. ### Create Game Logic
-	- [ ] Create `ship.js` module which contains `ship` factory function
-		- [x] `gameGrid()` method - is an array of 100 elements
+	- [x] Create `ship.js` module which contains `ship` factory function
 		- [x] `ships()` method - is an array of objects which include ship's name, length and it's direction
-		- [ ] `ships` will be objects that include their length, where they’ve been hit and whether or not they’ve been sunk.
-		- [ ] REMEMBER you only have to test your object’s public interface. Only methods or properties that are used outside of your `ship` object need unit tests.
-		- [ ] Ships should have a `hit()` function that takes a number and then marks that position as ‘hit’.
-		- [ ] `isSunk()` should be a function that calculates it based on their length and whether all of their positions are ‘hit’.
 
 	- [ ] Create `gameboard.js` module which contains `gameboard` factory function
+		- [x] `gameGrid()` method - is an array of 100 elements
+
 	- [ ] Create `player.js` module which contains `gameboard` factory function
 
 3. ### Test Game Logic
-	- [ ] Test `ship.js` module
-		- [x] Test `gameGrid()`	method 
-		- [x] Test `shipArray` array of objects
+	- [x] Test `ship.js` module
+		- [x] Test `shipArray` which should returns array of objects
+
+	- [x] Test `gameboard.js` module
+		- [x] Test `gameGrid()`	method, it should return array of 100 elements
 
 4. ### Repeat Step 3 and 4
 	- Make sure all tests pass.

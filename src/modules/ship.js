@@ -50,10 +50,10 @@ const ship = {
 
 	},
 
-	//////////////// test code from here /////////////
+
 
 	/* create shipArray which is array of objects including ship's name, 
-	*	length and it's direction
+	*	length and it's direction are X and Y co-ordinates respectively
 	*	[{
 	*		directions: [[0, 1], [0, 10]],
 	*		name: "destroyer"
@@ -117,37 +117,7 @@ const ship = {
 			return shipArray;
 
 	},
-	
 
-	//////////// test code till here /////////////
-
-
-
-	//create hit() helper function that takes a 
-	// number and then marks that position as ‘hit’
-
-	hit(position) {
-		
-	}
-
-	//create isSunk() helper function should be a function that calculates it 
-	// based on their length and whether all of their positions are ‘hit’
-
-
-
-
-
-	// REMEMBER you only have to test your object’s public interface. 
-	// Only methods or properties that are used outside of your ‘ship’ 
-	// object need unit tests.
-
-	// Your 'ships' will be objects that include their length,
-	// where they’ve been hit and whether or not they’ve been sunk.
-
-	
-	// ships() {
-
-	// }
 
 };
 
