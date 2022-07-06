@@ -40,7 +40,7 @@ module.exports = {
             filename: "index.html",
 			inject: false,
             template: "./src/public/template.html",
-            favicon: "./src/public/images/battleship.svg",
+            favicon: "./src/public/images/favicon.svg"
         }),
     ],
 };

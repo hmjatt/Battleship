@@ -1,4 +1,4 @@
-/* body {
+body {
 	margin: 0;
 	background-color: #F3F3F3;
 	overflow-x: hidden;
@@ -302,4 +302,4 @@
 .ready.active {
 	opacity: 1;
 	text-decoration: none;
-} */
+}
