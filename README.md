@@ -47,7 +47,7 @@ Run Dev Server (Port 5500)
 
 ## Steps I followed to complete this project
 
-1. ### Initialialize Environment Setup
+1. ### Setup Environment Setup
 	- [x] Install **NPM** using `npm init -y` to skip questions.
 	- [x] Install **Webpack** using `npm install webpack webpack-cli --save-dev`.
 	- [x] Add a `webpack.config.js` file and setup project directory.
@@ -56,29 +56,6 @@ Run Dev Server (Port 5500)
 	- [x] Install **Jest** using `npm install --save-dev jest` command.
 	- [x] Create a sample *test* using [Jest](https://jestjs.io/docs/getting-started) documentation. Configure **Jest** by adding `"test": "jest"` line to `package.json` file.
 	- [x] Run `npm test` command to make sure the mock test passes and everything is configured correctly so far(PASSED).
-
-2. ### Create Game Logic
-	- [ ] Create DOM elements and cache them in `DOMInterface` module
-	- [x] Create `ship.js` module which contains `ship` factory function
-		- [x] `ships()` method - is an array of objects which include ship's name, length and it's direction
-
-	- [ ] Create `gameboard.js` module which contains `gameboard` factory function
-		- [x] `gameGrid()` method - is an array of 100 elements
-		- [] `placeShips()` method - places player ships on `gameGrid()` by calling `ship` factory function
-
-	- [ ] Create `player.js` module which contains `gameboard` factory function
-
-3. ### Test Game Logic
-	- [x] Test `ship.js` module
-		- [x] Test `shipArray` which should return array of objects
-
-	- [x] Test `gameboard.js` module
-		- [x] Test `gameGrid()`	method, it should return array of 100 elements
-
-4. ### Repeat Step 3 and 4
-	- Make sure all tests pass.
-
-5. ### Finish Environment Setup
 	- [ ] Use source maps.
 	- [ ] Load Assets.
 		- [ ] CSS
@@ -89,11 +66,29 @@ Run Dev Server (Port 5500)
 		- [ ] Setup favicon
 	- [ ] Update `webpack.config.js` file to finish environment setup.
 
-6. ### Create UI
+2. ### Create Game Logic
+	- [ ] Create DOM elements and cache them in `DOMInterface` module
+	- [x] Create `ship.js` module which contains `ship` factory function
+		- [x] `ships()` method - is an array of objects which include ship's name, length and it's direction
+	- [ ] Create `gameboard.js` module which contains `gameboard` factory function
+		- [x] `gameGrid()` method - is an array of 100 elements
+		- [] `placeShips()` method - places player ships on `gameGrid()` by calling `ship` factory function
+	- [ ] Create `player.js` module which calls `gameboard` factory function
+
+3. ### Test Game Logic
+	- [x] Test `ship.js` module
+		- [x] Test `shipArray` which should return array of objects
+	- [x] Test `gameboard.js` module
+		- [x] Test `gameGrid()`	method, it should return array of 100 elements
+
+4. ### Repeat Step 3 and 4
+	- Make sure all tests pass.
+
+5. ### Create UI
 	- [ ] Update template.html for any changes
 	- [ ] Style HTML page(create style.css)
 	- [ ] Add Images and Fonts
-7. ### Finish the game
+6. ### Finish the game
 	- [ ] Allow users to place their ships
 	- [ ] Use coordinates for each ship or implement drag/drop of ships.
 
