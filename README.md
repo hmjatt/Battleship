@@ -69,7 +69,7 @@ Run Dev Server (Port 5500)
 
 3. ### Test Game Logic
 	- [x] Test `ship.js` module
-		- [x] Test `shipArray` which should returns array of objects
+		- [x] Test `shipArray` which should return array of objects
 
 	- [x] Test `gameboard.js` module
 		- [x] Test `gameGrid()`	method, it should return array of 100 elements
