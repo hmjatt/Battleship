@@ -1,7 +1,6 @@
 const gameboard = {
 
-	// width variable representing grid with and numbers of elements in gameGrid()
-	// function ships need to spaced out
+	// width variable representing number of elements in a row in gameGrid() method
 	width : 10,
 
 	/*create gameGrid() helper function that generates a grid
