@@ -3,6 +3,8 @@ const ship = {
     // ships need to spaced out
     width: 10,
 
+	shipArray: [],
+
     /* create shipArray which is array of objects including ship's name,
      *	length and it's direction are X and Y co-ordinates respectively
      *	[{
@@ -24,7 +26,7 @@ const ship = {
      */
 
     ships() {
-        let shipArray = [
+       this.shipArray = [
             {
                 name: "destroyer",
                 directions: [
@@ -67,7 +69,7 @@ const ship = {
                 ],
             },
         ];
-        return shipArray;
+        return this.shipArray;
     },
 };
 
