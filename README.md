@@ -64,7 +64,7 @@ Run Dev Server (Port 5500)
 		- [x] Clean up the `/dist` folder
 		- [x] Setup template.html
 		- [x] Setup favicon
-	- [ ] Update `webpack.config.js` file to finish environment setup.
+	- [x] Update `webpack.config.js` file to finish environment setup.
 
 2. ### Create Game Logic
 	- [ ] Create DOM elements and cache them in `DOMInterface` module
