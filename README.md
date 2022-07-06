@@ -63,7 +63,7 @@ Run Dev Server (Port 5500)
 	- [x] Setup HtmlWebpackPlugin
 		- [x] Clean up the `/dist` folder
 		- [x] Setup template.html
-		- [ ] Setup favicon
+		- [x] Setup favicon
 	- [ ] Update `webpack.config.js` file to finish environment setup.
 
 2. ### Create Game Logic
