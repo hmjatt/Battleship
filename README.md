@@ -89,7 +89,9 @@ Run Dev Server (Port 5500)
 	- [ ] Update `webpack.config.js` file to finish environment setup.
 
 6. ### Create UI
-
+	- [ ] Create HTML for game(Update template.html)
+	- [ ] Style HTML page(create style.css)
+	- [ ] Add Images and Fonts
 7. ### Finish the game
 	- [ ] Allow users to place their ships
 	- [ ] Use coordinates for each ship or implement drag/drop of ships.
