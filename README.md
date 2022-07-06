@@ -59,7 +59,7 @@ Run Dev Server (Port 5500)
 	- [x] Use source maps.
 	- [x] Load Assets.
 		- [x] CSS
-		- [ ] Images
+		- [x] Images
 	- [x] Setup HtmlWebpackPlugin
 		- [x] Clean up the `/dist` folder
 		- [x] Setup template.html
