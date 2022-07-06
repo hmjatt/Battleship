@@ -58,6 +58,7 @@ Run Dev Server (Port 5500)
 	- [x] Run `npm test` command to make sure the mock test passes and everything is configured correctly so far(PASSED).
 
 2. ### Create Game Logic
+	- [ ] Create DOM elements and cache them in `DOMInterface` module
 	- [x] Create `ship.js` module which contains `ship` factory function
 		- [x] `ships()` method - is an array of objects which include ship's name, length and it's direction
 
@@ -89,7 +90,7 @@ Run Dev Server (Port 5500)
 	- [ ] Update `webpack.config.js` file to finish environment setup.
 
 6. ### Create UI
-	- [ ] Create HTML for game(Update template.html)
+	- [ ] Update template.html for any changes
 	- [ ] Style HTML page(create style.css)
 	- [ ] Add Images and Fonts
 7. ### Finish the game
