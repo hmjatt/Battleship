@@ -38,6 +38,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Battleship Game",
             filename: "index.html",
+			inject: false,
             template: "./src/public/template.html",
             favicon: "./src/public/images/battleship.svg",
         }),
