@@ -63,6 +63,7 @@ Run Dev Server (Port 5500)
 
 	- [ ] Create `gameboard.js` module which contains `gameboard` factory function
 		- [x] `gameGrid()` method - is an array of 100 elements
+		- [] `receiveAttack()`
 
 	- [ ] Create `player.js` module which contains `gameboard` factory function
 
