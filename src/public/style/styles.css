@@ -7,7 +7,7 @@ body {
 *,
 *::before,
 *::after {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Roboto Mono', monospace;
     box-sizing: border-box;
 }
 
@@ -20,7 +20,7 @@ body {
 }
 
 .splash-title {
-    font-family: "Bangers", cursive;
+    font-family: 'Roboto Mono', monospace;
     font-size: 10rem;
 }
 
