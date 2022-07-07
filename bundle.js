@@ -316,33 +316,30 @@ var DOMInterface = {
 
     function dragEnd() {// console.log('dragend')
     } // Game Logic for MultiPlayer
-
-
-    function playGameMulti(socket) {
-      setupButtons.style.display = "none";
-      if (isGameOver) return;
-
-      if (!ready) {
-        socket.emit("player-ready");
-        ready = true;
-        playerReady(playerNum);
-      }
-
-      if (enemyReady) {
-        if (currentPlayer === "user") {
-          turnDisplay.innerHTML = "Your Go";
-        }
-
-        if (currentPlayer === "enemy") {
-          turnDisplay.innerHTML = "Enemy's Go";
-        }
-      }
-    }
-
-    function playerReady(num) {
-      var player = ".p".concat(parseInt(num) + 1);
-      document.querySelector("".concat(player, " .ready")).classList.toggle("active");
-    } // Game Logic for Single Player
+    // function playGameMulti(socket) {
+    //     setupButtons.style.display = "none";
+    //     if (isGameOver) return;
+    //     if (!ready) {
+    //         socket.emit("player-ready");
+    //         ready = true;
+    //         playerReady(playerNum);
+    //     }
+    //     if (enemyReady) {
+    //         if (currentPlayer === "user") {
+    //             turnDisplay.innerHTML = "Your Go";
+    //         }
+    //         if (currentPlayer === "enemy") {
+    //             turnDisplay.innerHTML = "Enemy's Go";
+    //         }
+    //     }
+    // }
+    // function playerReady(num) {
+    //     let player = `.p${parseInt(num) + 1}`;
+    //     document
+    //         .querySelector(`${player} .ready`)
+    //         .classList.toggle("active");
+    // }
+    // Game Logic for Single Player
 
 
     function playGameSingle() {
@@ -360,7 +357,7 @@ var DOMInterface = {
 
       if (currentPlayer === "enemy") {
         turnDisplay.innerHTML = "Computers Go";
-        setTimeout(enemyGo, 1000);
+        setTimeout(enemyGo, 200);
       }
     }
 
@@ -383,7 +380,7 @@ var DOMInterface = {
         checkForWins();
       }
 
-      if (classList.classList.contains("boom") || classList.classList.contains("miss")) {
+      if (obj.includes("boom") || obj.includes("miss")) {
         return;
       } else {
         if (obj.includes("taken")) {
