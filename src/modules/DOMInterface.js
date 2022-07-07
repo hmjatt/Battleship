@@ -304,6 +304,7 @@ const DOMInterface = {
                     square.addEventListener("click", function (e) {
                         shotFired = square.dataset.id;
                         revealSquare(square.classList);
+						console.log(shotFired)
                     })
                 );
             }
@@ -324,10 +325,20 @@ const DOMInterface = {
                 `div[data-id='${shotFired}']`
             );
             const obj = Object.values(classList);
+			// if (
+            //     !enemySquare.classList.contains("boom") &&
+            //     currentPlayer === "user" &&
+            //     !isGameOver
+            // ) {
+            //     if (obj.includes("destroyer")) destroyerCount++;
+            //     if (obj.includes("submarine")) submarineCount++;
+            //     if (obj.includes("cruiser")) cruiserCount++;
+            //     if (obj.includes("battleship")) battleshipCount++;
+            //     if (obj.includes("carrier")) carrierCount++;
+            //     checkForWins();
+            // }
             if (
-                !enemySquare.classList.contains("boom") &&
-                currentPlayer === "user" &&
-                !isGameOver
+                !obj.includes("boom")
             ) {
                 if (obj.includes("destroyer")) destroyerCount++;
                 if (obj.includes("submarine")) submarineCount++;
