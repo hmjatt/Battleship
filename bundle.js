@@ -236,6 +236,7 @@ var DOMInterface = {
           return square.addEventListener("click", function (e) {
             shotFired = square.dataset.id;
             revealSquare(square.classList);
+            console.log(shotFired);
           });
         });
       }
@@ -254,9 +255,20 @@ var DOMInterface = {
 
     function revealSquare(classList) {
       var enemySquare = computerGrid.querySelector("div[data-id='".concat(shotFired, "']"));
-      var obj = Object.values(classList);
+      var obj = Object.values(classList); // if (
+      //     !enemySquare.classList.contains("boom") &&
+      //     currentPlayer === "user" &&
+      //     !isGameOver
+      // ) {
+      //     if (obj.includes("destroyer")) destroyerCount++;
+      //     if (obj.includes("submarine")) submarineCount++;
+      //     if (obj.includes("cruiser")) cruiserCount++;
+      //     if (obj.includes("battleship")) battleshipCount++;
+      //     if (obj.includes("carrier")) carrierCount++;
+      //     checkForWins();
+      // }
 
-      if (!enemySquare.classList.contains("boom") && currentPlayer === "user" && !isGameOver) {
+      if (!obj.includes("boom")) {
         if (obj.includes("destroyer")) destroyerCount++;
         if (obj.includes("submarine")) submarineCount++;
         if (obj.includes("cruiser")) cruiserCount++;
