@@ -7,7 +7,8 @@ import ship from "../modules/ship";
 
 
 
-// document.addEventListener('DOMContentLoaded', DOMInterface);
+document.addEventListener('DOMContentLoaded', DOMInterface);
 document.addEventListener('DOMContentLoaded', gameboard);
 document.addEventListener('DOMContentLoaded', ship);
 
+DOMInterface.gameStart();

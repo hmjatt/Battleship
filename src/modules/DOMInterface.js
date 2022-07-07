@@ -30,6 +30,7 @@ const DOMInterface = {
         const setupButtons = document.getElementById("setup-buttons");
         const userSquares = [];
         const computerSquares = [];
+		const gameMode = "singlePlayer";
         let isHorizontal = true;
         let isGameOver = false;
         let currentPlayer = "user";
@@ -82,12 +83,13 @@ const DOMInterface = {
         createBoard(computerGrid, computerSquares);
 
         // Select Player Mode
-        if (gameMode === "singlePlayer") {
-            startSinglePlayer();
-        } else {
-            // startMultiPlayer();
-			console.log('2 player mode')
-        }
+		startSinglePlayer();
+        // if (gameMode === "singlePlayer") {
+            
+        // } else {
+        //     // startMultiPlayer();
+		// 	console.log('2 player mode')
+        // }
 
         // Multiplayer
         // function startMultiPlayer() {
@@ -301,7 +303,15 @@ const DOMInterface = {
         function dragStart() {
             draggedShip = this;
             draggedShipLength = this.childNodes.length;
-            // console.log(draggedShip)
+			for (let i = 0; i < draggedShip.childNodes.length; i++) {
+                if (draggedShip.childNodes[i].nodeType === 3) {
+                    draggedShip.childNodes[i].parentNode.removeChild(
+                        draggedShip.childNodes[i]
+                    );
+                }
+            }
+            // console.log(draggedShip.lastChild.id);
+            draggedShipLength = draggedShip.childNodes.length;
         }
 
         function dragOver(e) {
@@ -319,6 +329,7 @@ const DOMInterface = {
         function dragDrop() {
             let shipNameWithLastId = draggedShip.lastChild.id;
             let shipClass = shipNameWithLastId.slice(0, -2);
+			// console.log(shipNameWithLastId);
             // console.log(shipClass)
             let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
             let shipLastId = lastShipIndex + parseInt(this.dataset.id);
@@ -500,7 +511,7 @@ const DOMInterface = {
 
         function checkForWins() {
             let enemy = "computer";
-            if (gameMode === "multiPlayer") enemy = "enemy";
+            // if (gameMode === "multiPlayer") enemy = "enemy";
             if (destroyerCount === 2) {
                 infoDisplay.innerHTML = `You sunk the ${enemy}'s destroyer`;
                 destroyerCount = 10;
@@ -550,6 +561,7 @@ const DOMInterface = {
                     carrierCount ===
                 50
             ) {
+				turnDisplay.remove();
                 infoDisplay.innerHTML = "YOU WIN";
                 gameOver();
             }
@@ -561,6 +573,7 @@ const DOMInterface = {
                     cpuCarrierCount ===
                 50
             ) {
+				turnDisplay.remove();
                 infoDisplay.innerHTML = `${enemy.toUpperCase()} WINS`;
                 gameOver();
             }
@@ -571,6 +584,11 @@ const DOMInterface = {
             startButton.removeEventListener("click", playGameSingle);
         }
     },
+
+	gameStart() {
+		this.gameLogic();
+	}
+
 };
 
 module.exports = DOMInterface;
