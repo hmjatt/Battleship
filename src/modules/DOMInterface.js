@@ -562,7 +562,7 @@ const DOMInterface = {
                 50
             ) {
 				turnDisplay.remove();
-                infoDisplay.innerHTML = "YOU WIN";
+                infoDisplay.innerHTML = "YOU WIN THE GAME";
                 gameOver();
             }
             if (
