@@ -472,13 +472,13 @@ var DOMInterface = {
 
       if (destroyerCount + submarineCount + cruiserCount + battleshipCount + carrierCount === 50) {
         turnDisplay.remove();
-        infoDisplay.innerHTML = "YOU WIN THE GAME";
+        infoDisplay.innerHTML = "YOU WON";
         gameOver();
       }
 
       if (cpuDestroyerCount + cpuSubmarineCount + cpuCruiserCount + cpuBattleshipCount + cpuCarrierCount === 50) {
         turnDisplay.remove();
-        infoDisplay.innerHTML = "".concat(enemy.toUpperCase(), " WINS");
+        infoDisplay.innerHTML = "".concat(enemy.toUpperCase(), " WON");
         gameOver();
       }
     }

@@ -562,7 +562,7 @@ const DOMInterface = {
                 50
             ) {
 				turnDisplay.remove();
-                infoDisplay.innerHTML = "YOU WIN THE GAME";
+                infoDisplay.innerHTML = "YOU WON";
                 gameOver();
             }
             if (
@@ -574,7 +574,7 @@ const DOMInterface = {
                 50
             ) {
 				turnDisplay.remove();
-                infoDisplay.innerHTML = `${enemy.toUpperCase()} WINS`;
+                infoDisplay.innerHTML = `${enemy.toUpperCase()} WON`;
                 gameOver();
             }
         }
