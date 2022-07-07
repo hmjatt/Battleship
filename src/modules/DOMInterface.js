@@ -405,31 +405,31 @@ const DOMInterface = {
         }
 
         // Game Logic for MultiPlayer
-        function playGameMulti(socket) {
-            setupButtons.style.display = "none";
-            if (isGameOver) return;
-            if (!ready) {
-                socket.emit("player-ready");
-                ready = true;
-                playerReady(playerNum);
-            }
+        // function playGameMulti(socket) {
+        //     setupButtons.style.display = "none";
+        //     if (isGameOver) return;
+        //     if (!ready) {
+        //         socket.emit("player-ready");
+        //         ready = true;
+        //         playerReady(playerNum);
+        //     }
 
-            if (enemyReady) {
-                if (currentPlayer === "user") {
-                    turnDisplay.innerHTML = "Your Go";
-                }
-                if (currentPlayer === "enemy") {
-                    turnDisplay.innerHTML = "Enemy's Go";
-                }
-            }
-        }
+        //     if (enemyReady) {
+        //         if (currentPlayer === "user") {
+        //             turnDisplay.innerHTML = "Your Go";
+        //         }
+        //         if (currentPlayer === "enemy") {
+        //             turnDisplay.innerHTML = "Enemy's Go";
+        //         }
+        //     }
+        // }
 
-        function playerReady(num) {
-            let player = `.p${parseInt(num) + 1}`;
-            document
-                .querySelector(`${player} .ready`)
-                .classList.toggle("active");
-        }
+        // function playerReady(num) {
+        //     let player = `.p${parseInt(num) + 1}`;
+        //     document
+        //         .querySelector(`${player} .ready`)
+        //         .classList.toggle("active");
+        // }
 
         // Game Logic for Single Player
         function playGameSingle() {
@@ -445,7 +445,7 @@ const DOMInterface = {
             }
             if (currentPlayer === "enemy") {
                 turnDisplay.innerHTML = "Computers Go";
-                setTimeout(enemyGo, 1000);
+                setTimeout(enemyGo, 200);
             }
         }
 
@@ -473,8 +473,8 @@ const DOMInterface = {
                 checkForWins();
             }
             if (
-                classList.classList.contains("boom") ||
-                classList.classList.contains("miss")
+                obj.includes("boom") ||
+                obj.includes("miss")
             ) {
                 return;
             } else {
