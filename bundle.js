@@ -472,7 +472,7 @@ var DOMInterface = {
 
       if (destroyerCount + submarineCount + cruiserCount + battleshipCount + carrierCount === 50) {
         turnDisplay.remove();
-        infoDisplay.innerHTML = "YOU WIN";
+        infoDisplay.innerHTML = "YOU WIN THE GAME";
         gameOver();
       }
 
