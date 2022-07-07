@@ -1,15 +1,5 @@
 //Catche DOM
 
-// function component() {
-// 	const element = document.createElement('div');
-
-// 	element.innerHTML = 'Webpack setup successful';
-
-// 	return element;
-//   }
-
-//   document.body.appendChild(component());
-
 console.log("it works");
 
 const DOMInterface = {
@@ -30,7 +20,7 @@ const DOMInterface = {
         const setupButtons = document.getElementById("setup-buttons");
         const userSquares = [];
         const computerSquares = [];
-		const gameMode = "singlePlayer";
+        const gameMode = "singlePlayer";
         let isHorizontal = true;
         let isGameOver = false;
         let currentPlayer = "user";
@@ -83,7 +73,7 @@ const DOMInterface = {
         createBoard(computerGrid, computerSquares);
 
         // Select Player Mode
-		startSinglePlayer();
+        startSinglePlayer();
 
         // Single Player
         function startSinglePlayer() {
@@ -204,7 +194,7 @@ const DOMInterface = {
         function dragStart() {
             draggedShip = this;
             draggedShipLength = this.childNodes.length;
-			for (let i = 0; i < draggedShip.childNodes.length; i++) {
+            for (let i = 0; i < draggedShip.childNodes.length; i++) {
                 if (draggedShip.childNodes[i].nodeType === 3) {
                     draggedShip.childNodes[i].parentNode.removeChild(
                         draggedShip.childNodes[i]
@@ -230,7 +220,7 @@ const DOMInterface = {
         function dragDrop() {
             let shipNameWithLastId = draggedShip.lastChild.id;
             let shipClass = shipNameWithLastId.slice(0, -2);
-			// console.log(shipNameWithLastId);
+            // console.log(shipNameWithLastId);
             // console.log(shipClass)
             let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
             let shipLastId = lastShipIndex + parseInt(this.dataset.id);
@@ -346,10 +336,7 @@ const DOMInterface = {
                 if (obj.includes("carrier")) carrierCount++;
                 checkForWins();
             }
-            if (
-                obj.includes("boom") ||
-                obj.includes("miss")
-            ) {
+            if (obj.includes("boom") || obj.includes("miss")) {
                 return;
             } else {
                 if (obj.includes("taken")) {
@@ -372,8 +359,8 @@ const DOMInterface = {
             if (gameMode === "singlePlayer")
                 square = Math.floor(Math.random() * userSquares.length);
             if (!userSquares[square].classList.contains("boom")) {
-                const hit = userSquares[square].classList.contains("taken");
-                userSquares[square].classList.add(hit ? "boom" : "miss");
+                // const hit = userSquares[square].classList.contains("taken");
+                // userSquares[square].classList.add(hit ? "boom" : "miss");
                 if (userSquares[square].classList.contains("destroyer"))
                     cpuDestroyerCount++;
                 if (userSquares[square].classList.contains("submarine"))
@@ -385,7 +372,23 @@ const DOMInterface = {
                 if (userSquares[square].classList.contains("carrier"))
                     cpuCarrierCount++;
                 checkForWins();
-            } else if (gameMode === "singlePlayer") enemyGo();
+            } 
+			// else if (gameMode === "singlePlayer") enemyGo();
+			if (userSquares[square].classList.contains('boom') || userSquares[square].classList.contains('miss')) {
+				enemyGo();
+			  } else {
+				if (userSquares[square].classList.contains('taken')) {
+				//   const fondo = document.createElement('i');
+				//   fondo.classList.add('fas', 'fa-circle');
+				//   userSquares[square].appendChild(fondo);
+				  userSquares[square].classList.add('boom');
+				} else {
+				//   const fondo = document.createElement('i');
+				//   fondo.classList.add('fas', 'fa-circle');
+				//   userSquares[square].appendChild(fondo);
+				  userSquares[square].classList.add('miss');
+				}
+			  }
             currentPlayer = "user";
             turnDisplay.innerHTML = "Your Go";
         }
@@ -442,7 +445,7 @@ const DOMInterface = {
                     carrierCount ===
                 50
             ) {
-				turnDisplay.remove();
+                turnDisplay.remove();
                 infoDisplay.innerHTML = "YOU WON";
                 gameOver();
             }
@@ -454,7 +457,7 @@ const DOMInterface = {
                     cpuCarrierCount ===
                 50
             ) {
-				turnDisplay.remove();
+                turnDisplay.remove();
                 infoDisplay.innerHTML = `${enemy.toUpperCase()} WON`;
                 gameOver();
             }
@@ -466,10 +469,9 @@ const DOMInterface = {
         }
     },
 
-	gameStart() {
-		this.gameLogic();
-	}
-
+    gameStart() {
+        this.gameLogic();
+    },
 };
 
 module.exports = DOMInterface;

@@ -8,12 +8,6 @@
 /***/ ((module) => {
 
 //Catche DOM
-// function component() {
-// 	const element = document.createElement('div');
-// 	element.innerHTML = 'Webpack setup successful';
-// 	return element;
-//   }
-//   document.body.appendChild(component());
 console.log("it works");
 var DOMInterface = {
   gameLogic: function gameLogic() {
@@ -295,15 +289,32 @@ var DOMInterface = {
       if (gameMode === "singlePlayer") square = Math.floor(Math.random() * userSquares.length);
 
       if (!userSquares[square].classList.contains("boom")) {
-        var hit = userSquares[square].classList.contains("taken");
-        userSquares[square].classList.add(hit ? "boom" : "miss");
+        // const hit = userSquares[square].classList.contains("taken");
+        // userSquares[square].classList.add(hit ? "boom" : "miss");
         if (userSquares[square].classList.contains("destroyer")) cpuDestroyerCount++;
         if (userSquares[square].classList.contains("submarine")) cpuSubmarineCount++;
         if (userSquares[square].classList.contains("cruiser")) cpuCruiserCount++;
         if (userSquares[square].classList.contains("battleship")) cpuBattleshipCount++;
         if (userSquares[square].classList.contains("carrier")) cpuCarrierCount++;
         checkForWins();
-      } else if (gameMode === "singlePlayer") enemyGo();
+      } // else if (gameMode === "singlePlayer") enemyGo();
+
+
+      if (userSquares[square].classList.contains('boom') || userSquares[square].classList.contains('miss')) {
+        enemyGo();
+      } else {
+        if (userSquares[square].classList.contains('taken')) {
+          //   const fondo = document.createElement('i');
+          //   fondo.classList.add('fas', 'fa-circle');
+          //   userSquares[square].appendChild(fondo);
+          userSquares[square].classList.add('boom');
+        } else {
+          //   const fondo = document.createElement('i');
+          //   fondo.classList.add('fas', 'fa-circle');
+          //   userSquares[square].appendChild(fondo);
+          userSquares[square].classList.add('miss');
+        }
+      }
 
       currentPlayer = "user";
       turnDisplay.innerHTML = "Your Go";
