@@ -470,13 +470,20 @@ const DOMInterface = {
                 if (obj.includes("cruiser")) cruiserCount++;
                 if (obj.includes("battleship")) battleshipCount++;
                 if (obj.includes("carrier")) carrierCount++;
+                checkForWins();
             }
-            if (obj.includes("taken")) {
-                enemySquare.classList.add("boom");
+            if (
+                classList.classList.contains("boom") ||
+                classList.classList.contains("miss")
+            ) {
+                return;
             } else {
-                enemySquare.classList.add("miss");
+                if (obj.includes("taken")) {
+                    enemySquare.classList.add("boom");
+                } else {
+                    enemySquare.classList.add("miss");
+                }
             }
-            checkForWins();
             currentPlayer = "enemy";
             if (gameMode === "singlePlayer") playGameSingle();
         }
