@@ -33,6 +33,7 @@ var DOMInterface = {
     var setupButtons = document.getElementById("setup-buttons");
     var userSquares = [];
     var computerSquares = [];
+    var gameMode = "singlePlayer";
     var isHorizontal = true;
     var isGameOver = false;
     var currentPlayer = "user";
@@ -62,12 +63,12 @@ var DOMInterface = {
     createBoard(userGrid, userSquares);
     createBoard(computerGrid, computerSquares); // Select Player Mode
 
-    if (gameMode === "singlePlayer") {
-      startSinglePlayer();
-    } else {
-      // startMultiPlayer();
-      console.log('2 player mode');
-    } // Multiplayer
+    startSinglePlayer(); // if (gameMode === "singlePlayer") {
+    // } else {
+    //     // startMultiPlayer();
+    // 	console.log('2 player mode')
+    // }
+    // Multiplayer
     // function startMultiPlayer() {
     //     const socket = io();
     //     // Get your player number
@@ -148,7 +149,6 @@ var DOMInterface = {
     //     }
     // }
     // Single Player
-
 
     function startSinglePlayer() {
       generate(shipArray[0]);
@@ -252,7 +252,16 @@ var DOMInterface = {
 
     function dragStart() {
       draggedShip = this;
-      draggedShipLength = this.childNodes.length; // console.log(draggedShip)
+      draggedShipLength = this.childNodes.length;
+
+      for (var i = 0; i < draggedShip.childNodes.length; i++) {
+        if (draggedShip.childNodes[i].nodeType === 3) {
+          draggedShip.childNodes[i].parentNode.removeChild(draggedShip.childNodes[i]);
+        }
+      } // console.log(draggedShip.lastChild.id);
+
+
+      draggedShipLength = draggedShip.childNodes.length;
     }
 
     function dragOver(e) {
@@ -268,7 +277,8 @@ var DOMInterface = {
 
     function dragDrop() {
       var shipNameWithLastId = draggedShip.lastChild.id;
-      var shipClass = shipNameWithLastId.slice(0, -2); // console.log(shipClass)
+      var shipClass = shipNameWithLastId.slice(0, -2); // console.log(shipNameWithLastId);
+      // console.log(shipClass)
 
       var lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
       var shipLastId = lastShipIndex + parseInt(this.dataset.id); // console.log(shipLastId)
@@ -408,8 +418,7 @@ var DOMInterface = {
     }
 
     function checkForWins() {
-      var enemy = "computer";
-      if (gameMode === "multiPlayer") enemy = "enemy";
+      var enemy = "computer"; // if (gameMode === "multiPlayer") enemy = "enemy";
 
       if (destroyerCount === 2) {
         infoDisplay.innerHTML = "You sunk the ".concat(enemy, "'s destroyer");
@@ -462,11 +471,13 @@ var DOMInterface = {
       }
 
       if (destroyerCount + submarineCount + cruiserCount + battleshipCount + carrierCount === 50) {
+        turnDisplay.remove();
         infoDisplay.innerHTML = "YOU WIN";
         gameOver();
       }
 
       if (cpuDestroyerCount + cpuSubmarineCount + cpuCruiserCount + cpuBattleshipCount + cpuCarrierCount === 50) {
+        turnDisplay.remove();
         infoDisplay.innerHTML = "".concat(enemy.toUpperCase(), " WINS");
         gameOver();
       }
@@ -476,6 +487,9 @@ var DOMInterface = {
       isGameOver = true;
       startButton.removeEventListener("click", playGameSingle);
     }
+  },
+  gameStart: function gameStart() {
+    this.gameLogic();
   }
 };
 module.exports = DOMInterface;
@@ -1256,10 +1270,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // document.addEventListener('DOMContentLoaded', DOMInterface);
 
+document.addEventListener('DOMContentLoaded', (_modules_DOMInterface__WEBPACK_IMPORTED_MODULE_1___default()));
 document.addEventListener('DOMContentLoaded', (_modules_gameboard__WEBPACK_IMPORTED_MODULE_2___default()));
 document.addEventListener('DOMContentLoaded', (_modules_ship__WEBPACK_IMPORTED_MODULE_3___default()));
+_modules_DOMInterface__WEBPACK_IMPORTED_MODULE_1___default().gameStart();
 })();
 
 /******/ })()
