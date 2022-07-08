@@ -9,11 +9,6 @@ const DOMInterface = {
         const computerGrid = document.querySelector(".grid-computer");
         const displayGrid = document.querySelector(".grid-display");
         const ships = document.querySelectorAll(".ship");
-        // const destroyer = document.querySelector(".destroyer-container");
-        // const submarine = document.querySelector(".submarine-container");
-        // const cruiser = document.querySelector(".cruiser-container");
-        // const battleship = document.querySelector(".battleship-container");
-        // const carrier = document.querySelector(".carrier-container");
 
 		const destroyer = shipModule.ships('destroyer');
 		const submarine = shipModule.ships('submarine');

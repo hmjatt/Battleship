@@ -21,12 +21,7 @@ var DOMInterface = {
     var userGrid = document.querySelector(".grid-user");
     var computerGrid = document.querySelector(".grid-computer");
     var displayGrid = document.querySelector(".grid-display");
-    var ships = document.querySelectorAll(".ship"); // const destroyer = document.querySelector(".destroyer-container");
-    // const submarine = document.querySelector(".submarine-container");
-    // const cruiser = document.querySelector(".cruiser-container");
-    // const battleship = document.querySelector(".battleship-container");
-    // const carrier = document.querySelector(".carrier-container");
-
+    var ships = document.querySelectorAll(".ship");
     var destroyer = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('destroyer');
     var submarine = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('submarine');
     var cruiser = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('cruiser');
