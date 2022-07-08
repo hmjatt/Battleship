@@ -68,7 +68,7 @@ Run Dev Server (Port 5500)
 	- [x] Make sure it compiles the bundle successfully.
 
 2. ### Create Game Logic
-	- [ ] Create DOM elements and cache them in `DOMInterface` module
+	- [x] Create DOM elements and cache them in `DOMInterface` module
 	- [x] Create `shipObject.js` module which contains `ships` factory function
 		- [x] `ships()` method - is an array of objects which include ship's name, length and it's direction
 	- [ ] Create `gameboard.js` module which contains `gameboard` factory function

@@ -40,6 +40,8 @@ const DOMInterface = {
 		// const shipArray = [];
         //Ships
 
+		console.log (shipObject.ships().getDirections)
+
 		const shipArray = [
             {
                 name: destroyer.getName(),
