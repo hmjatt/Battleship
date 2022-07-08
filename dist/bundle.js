@@ -1,25 +1,37 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/modules/DOMInterface.js":
 /*!*************************************!*\
   !*** ./src/modules/DOMInterface.js ***!
   \*************************************/
-/***/ ((module) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DOMInterface": () => (/* binding */ DOMInterface)
+/* harmony export */ });
+/* harmony import */ var _shipObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./shipObject */ "./src/modules/shipObject.js");
 //Catche DOM
-console.log("it works");
+
+console.log("it works before separating modules");
 var DOMInterface = {
   gameLogic: function gameLogic() {
     var userGrid = document.querySelector(".grid-user");
     var computerGrid = document.querySelector(".grid-computer");
     var displayGrid = document.querySelector(".grid-display");
-    var ships = document.querySelectorAll(".ship");
-    var destroyer = document.querySelector(".destroyer-container");
-    var submarine = document.querySelector(".submarine-container");
-    var cruiser = document.querySelector(".cruiser-container");
-    var battleship = document.querySelector(".battleship-container");
-    var carrier = document.querySelector(".carrier-container");
+    var ships = document.querySelectorAll(".ship"); // const destroyer = document.querySelector(".destroyer-container");
+    // const submarine = document.querySelector(".submarine-container");
+    // const cruiser = document.querySelector(".cruiser-container");
+    // const battleship = document.querySelector(".battleship-container");
+    // const carrier = document.querySelector(".carrier-container");
+
+    var destroyer = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('destroyer');
+    var submarine = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('submarine');
+    var cruiser = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('cruiser');
+    var battleship = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('battleship');
+    var carrier = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('carrier');
     var startButton = document.querySelector("#start");
     var rotateButton = document.querySelector("#rotate");
     var turnDisplay = document.querySelector("#whose-go");
@@ -36,23 +48,24 @@ var DOMInterface = {
     var ready = false;
     var enemyReady = false;
     var allShipsPlaced = false;
-    var shotFired = -1; //Ships
+    var shotFired = -1; // const shipArray = [];
+    //Ships
 
     var shipArray = [{
-      name: "destroyer",
-      directions: [[0, 1], [0, width]]
+      name: destroyer.getName(),
+      directions: destroyer.getDirections()
     }, {
-      name: "submarine",
-      directions: [[0, 1, 2], [0, width, width * 2]]
+      name: submarine.getName(),
+      directions: submarine.getDirections()
     }, {
-      name: "cruiser",
-      directions: [[0, 1, 2], [0, width, width * 2]]
+      name: cruiser.getName(),
+      directions: cruiser.getDirections()
     }, {
-      name: "battleship",
-      directions: [[0, 1, 2, 3], [0, width, width * 2, width * 3]]
+      name: battleship.getName(),
+      directions: battleship.getDirections()
     }, {
-      name: "carrier",
-      directions: [[0, 1, 2, 3, 4], [0, width, width * 2, width * 3, width * 4]]
+      name: carrier.getName(),
+      directions: carrier.getDirections()
     }];
     createBoard(userGrid, userSquares);
     createBoard(computerGrid, computerSquares); // Select Player Mode
@@ -85,6 +98,7 @@ var DOMInterface = {
     function generate(ship) {
       var randomDirection = Math.floor(Math.random() * ship.directions.length);
       var current = ship.directions[randomDirection];
+      var direction;
       if (randomDirection === 0) direction = 1;
       if (randomDirection === 1) direction = 10;
       var randomStart = Math.abs(Math.floor(Math.random() * computerSquares.length - ship.directions[0].length * direction));
@@ -105,22 +119,24 @@ var DOMInterface = {
 
     function rotate() {
       if (isHorizontal) {
-        destroyer.classList.toggle("destroyer-container-vertical");
-        submarine.classList.toggle("submarine-container-vertical");
-        cruiser.classList.toggle("cruiser-container-vertical");
-        battleship.classList.toggle("battleship-container-vertical");
-        carrier.classList.toggle("carrier-container-vertical");
+        destroyer.getElement().classList.toggle('destroyer-container-vertical');
+        submarine.getElement().classList.toggle('submarine-container-vertical');
+        cruiser.getElement().classList.toggle('cruiser-container-vertical');
+        battleship.getElement().classList.toggle('battleship-container-vertical');
+        carrier.getElement().classList.toggle('carrier-container-vertical');
+        displayGrid.classList.toggle('isHorizontal');
         isHorizontal = false; // console.log(isHorizontal)
 
         return;
       }
 
       if (!isHorizontal) {
-        destroyer.classList.toggle("destroyer-container-vertical");
-        submarine.classList.toggle("submarine-container-vertical");
-        cruiser.classList.toggle("cruiser-container-vertical");
-        battleship.classList.toggle("battleship-container-vertical");
-        carrier.classList.toggle("carrier-container-vertical");
+        destroyer.getElement().classList.toggle('destroyer-container-vertical');
+        submarine.getElement().classList.toggle('submarine-container-vertical');
+        cruiser.getElement().classList.toggle('cruiser-container-vertical');
+        battleship.getElement().classList.toggle('battleship-container-vertical');
+        carrier.getElement().classList.toggle('carrier-container-vertical');
+        displayGrid.classList.toggle('isHorizontal');
         isHorizontal = true; // console.log(isHorizontal)
 
         return;
@@ -186,17 +202,14 @@ var DOMInterface = {
 
     function dragDrop() {
       var shipNameWithLastId = draggedShip.lastChild.id;
-      var shipClass = shipNameWithLastId.slice(0, -2); // console.log(shipNameWithLastId);
-      // console.log(shipClass)
-
+      var shipClass = shipNameWithLastId.slice(0, -2);
       var lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
-      var shipLastId = lastShipIndex + parseInt(this.dataset.id); // console.log(shipLastId)
-
+      var shipLastId = lastShipIndex + parseInt(this.dataset.id);
       var notAllowedHorizontal = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 1, 11, 21, 31, 41, 51, 61, 71, 81, 91, 2, 22, 32, 42, 52, 62, 72, 82, 92, 3, 13, 23, 33, 43, 53, 63, 73, 83, 93];
       var notAllowedVertical = [99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60];
       var newNotAllowedHorizontal = notAllowedHorizontal.splice(0, 10 * lastShipIndex);
       var newNotAllowedVertical = notAllowedVertical.splice(0, 10 * lastShipIndex);
-      selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1));
+      var selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1));
       shipLastId = shipLastId - selectedShipIndex; // console.log(shipLastId)
 
       if (isHorizontal && !newNotAllowedHorizontal.includes(shipLastId)) {
@@ -404,114 +417,26 @@ var DOMInterface = {
     }
   },
   gameStart: function gameStart() {
-    this.gameLogic();
+    return this.gameLogic();
   }
 };
-module.exports = DOMInterface;
+
 
 /***/ }),
 
-/***/ "./src/modules/gameboard.js":
-/*!**********************************!*\
-  !*** ./src/modules/gameboard.js ***!
-  \**********************************/
-/***/ ((module) => {
+/***/ "./src/modules/shipObject.js":
+/*!***********************************!*\
+  !*** ./src/modules/shipObject.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// import ship from "./ship";
-var userSquares = [];
-var computerSquares = [];
-var gridArray = [];
-var width = 10;
-var shipArray = [{
-  name: 'destroyer',
-  directions: [[0, 1], [0, width]]
-}, {
-  name: 'submarine',
-  directions: [[0, 1, 2], [0, width, width * 2]]
-}, {
-  name: 'cruiser',
-  directions: [[0, 1, 2], [0, width, width * 2]]
-}, {
-  name: 'battleship',
-  directions: [[0, 1, 2, 3], [0, width, width * 2, width * 3]]
-}, {
-  name: 'carrier',
-  directions: [[0, 1, 2, 3, 4], [0, width, width * 2, width * 3, width * 4]]
-}];
-var gameboard = {
-  // width variable representing number of elements in a row in gameGrid() method
-
-  /*create gameGrid() helper function that generates a grid
-   * it is a array of 10 x 10 elements(100) filled with 0's
-   * e.g.
-   *	[0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-   *	10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-   *	20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
-   *	30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
-   *	40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
-   *	50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-   *	60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
-   *	70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
-   *	80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
-   *	90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
-   */
-  gameGrid: function gameGrid() {
-    for (var i = 0; i < width * width; i++) {
-      gridArray.push(i);
-    }
-
-    return gridArray;
-  },
-  // place ships on gameGrid
-  placeShips: function placeShips(ship) {
-    var randomDirection = Math.floor(Math.random() * ship.directions.length);
-    var current = ship.directions[randomDirection];
-    var direction;
-    if (randomDirection === 0) direction = 1;
-    if (randomDirection === 1) direction = 10;
-    var randomStart = Math.abs(Math.floor(Math.random() * computerSquares.length - ship.directions[0].length * direction)); // const isTaken = current.some((index) =>
-    //     computerSquares[randomStart + index].classList.contains("taken")
-    // );
-    // const isAtRightEdge = current.some(
-    //     (index) => (randomStart + index) % width === width - 1
-    // );
-    // const isAtLeftEdge = current.some(
-    //     (index) => (randomStart + index) % width === 0
-    // );
-    // if (!isTaken && !isAtRightEdge && !isAtLeftEdge)
-    //     current.forEach((index) =>
-    //         computerSquares[randomStart + index].classList.add(
-    //             "taken",
-    //             ship.name
-    //         )
-    //     );
-    // else this.placeShips(ship);
-  },
-  generateShips: function generateShips() {
-    this.gameGrid();
-    this.placeShips(shipArray[0]);
-    this.placeShips(shipArray[1]);
-    this.placeShips(shipArray[2]);
-    this.placeShips(shipArray[3]);
-    this.placeShips(shipArray[4]);
-    return gridArray;
-  }
-};
-module.exports = gameboard;
-
-/***/ }),
-
-/***/ "./src/modules/ship.js":
-/*!*****************************!*\
-  !*** ./src/modules/ship.js ***!
-  \*****************************/
-/***/ ((module) => {
-
-var ship = {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "shipObject": () => (/* binding */ shipObject)
+/* harmony export */ });
+var shipObject = {
   // width variable representing numbers of elements in gameboard
   // ships need to spaced out
-  width: 10,
-  shipArray: [],
 
   /* create shipArray which is array of objects including ship's name,
    *	length and it's direction are X and Y co-ordinates respectively
@@ -532,27 +457,64 @@ var ship = {
    *		name: "carrier"
    *	}]
    */
-  ships: function ships() {
-    this.shipArray = [{
-      name: "destroyer",
-      directions: [[0, 1], [0, this.width]]
-    }, {
-      name: "submarine",
-      directions: [[0, 1, 2], [0, this.width, this.width * 2]]
-    }, {
-      name: "cruiser",
-      directions: [[0, 1, 2], [0, this.width, this.width * 2]]
-    }, {
-      name: "battleship",
-      directions: [[0, 1, 2, 3], [0, this.width, this.width * 2, this.width * 3]]
-    }, {
-      name: "carrier",
-      directions: [[0, 1, 2, 3, 4], [0, this.width, this.width * 2, this.width * 3, this.width * 4]]
-    }];
-    return this.shipArray;
+  ships: function ships(name) {
+    var width = 10;
+    var elementoHTML;
+    var X;
+    var Y;
+
+    switch (name) {
+      case "destroyer":
+        elementoHTML = document.querySelector(".destroyer-container");
+        X = [0, 1];
+        Y = [0, width];
+        break;
+
+      case "submarine":
+        elementoHTML = document.querySelector(".submarine-container");
+        X = [0, 1, 2];
+        Y = [0, width, width * 2];
+        break;
+
+      case "cruiser":
+        elementoHTML = document.querySelector(".cruiser-container");
+        X = [0, 1, 2];
+        Y = [0, width, width * 2];
+        break;
+
+      case "battleship":
+        elementoHTML = document.querySelector(".battleship-container");
+        X = [0, 1, 2, 3];
+        Y = [0, width, width * 2, width * 3];
+        break;
+
+      case "carrier":
+        elementoHTML = document.querySelector(".carrier-container");
+        X = [0, 1, 2, 3, 4];
+        Y = [0, width, width * 2, width * 3, width * 4];
+        break;
+    }
+
+    var getName = function getName() {
+      return name;
+    };
+
+    var getElement = function getElement() {
+      return elementoHTML;
+    };
+
+    var getDirections = function getDirections() {
+      return [X, Y];
+    };
+
+    return {
+      getName: getName,
+      getElement: getElement,
+      getDirections: getDirections
+    };
   }
 };
-module.exports = ship;
+
 
 /***/ }),
 
@@ -562,7 +524,6 @@ module.exports = ship;
   \***************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -589,7 +550,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "body {\r\n    margin: 0;\r\n    backgr
   \*****************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /*
@@ -701,7 +661,6 @@ module.exports = function (cssWithMappingToString) {
   \************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 module.exports = function (item) {
@@ -733,7 +692,6 @@ module.exports = function (item) {
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -788,7 +746,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var stylesInDOM = [];
@@ -902,7 +859,6 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 var memo = {};
@@ -951,7 +907,6 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -972,7 +927,6 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -994,7 +948,6 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -1074,7 +1027,6 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /* istanbul ignore next  */
@@ -1168,28 +1120,22 @@ module.exports = styleTagTransform;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!*****************************!*\
   !*** ./src/public/index.js ***!
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/styles.css */ "./src/public/style/styles.css");
-/* harmony import */ var _modules_DOMInterface__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/DOMInterface */ "./src/modules/DOMInterface.js");
-/* harmony import */ var _modules_DOMInterface__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_DOMInterface__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_gameboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/gameboard */ "./src/modules/gameboard.js");
-/* harmony import */ var _modules_gameboard__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_gameboard__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _modules_ship__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/ship */ "./src/modules/ship.js");
-/* harmony import */ var _modules_ship__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_ship__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modules_DOMInterface_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/DOMInterface.js */ "./src/modules/DOMInterface.js");
 
+ // import gameboard from "../modules/gameboard";
+// import ship from "../modules/ship";
 
+document.addEventListener('DOMContentLoaded', _modules_DOMInterface_js__WEBPACK_IMPORTED_MODULE_1__.DOMInterface); // document.addEventListener('DOMContentLoaded', gameboard);
+// document.addEventListener('DOMContentLoaded', ship);
 
-
-document.addEventListener('DOMContentLoaded', (_modules_DOMInterface__WEBPACK_IMPORTED_MODULE_1___default()));
-document.addEventListener('DOMContentLoaded', (_modules_gameboard__WEBPACK_IMPORTED_MODULE_2___default()));
-document.addEventListener('DOMContentLoaded', (_modules_ship__WEBPACK_IMPORTED_MODULE_3___default()));
-_modules_DOMInterface__WEBPACK_IMPORTED_MODULE_1___default().gameStart();
+_modules_DOMInterface_js__WEBPACK_IMPORTED_MODULE_1__.DOMInterface.gameStart();
 })();
 
 /******/ })()

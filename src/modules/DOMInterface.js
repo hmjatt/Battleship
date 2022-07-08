@@ -1,4 +1,5 @@
 //Catche DOM
+import {shipObject} from "./shipObject";
 
 console.log("it works before separating modules");
 
@@ -8,11 +9,17 @@ const DOMInterface = {
         const computerGrid = document.querySelector(".grid-computer");
         const displayGrid = document.querySelector(".grid-display");
         const ships = document.querySelectorAll(".ship");
-        const destroyer = document.querySelector(".destroyer-container");
-        const submarine = document.querySelector(".submarine-container");
-        const cruiser = document.querySelector(".cruiser-container");
-        const battleship = document.querySelector(".battleship-container");
-        const carrier = document.querySelector(".carrier-container");
+        // const destroyer = document.querySelector(".destroyer-container");
+        // const submarine = document.querySelector(".submarine-container");
+        // const cruiser = document.querySelector(".cruiser-container");
+        // const battleship = document.querySelector(".battleship-container");
+        // const carrier = document.querySelector(".carrier-container");
+
+		const destroyer = shipObject.ships('destroyer');
+		const submarine = shipObject.ships('submarine');
+		const cruiser = shipObject.ships('cruiser');
+		const battleship = shipObject.ships('battleship');
+		const carrier = shipObject.ships('carrier');
         const startButton = document.querySelector("#start");
         const rotateButton = document.querySelector("#rotate");
         const turnDisplay = document.querySelector("#whose-go");
@@ -30,44 +37,32 @@ const DOMInterface = {
         let enemyReady = false;
         let allShipsPlaced = false;
         let shotFired = -1;
+		// const shipArray = [];
         //Ships
-        const shipArray = [
+
+		const shipArray = [
             {
-                name: "destroyer",
-                directions: [
-                    [0, 1],
-                    [0, width],
-                ],
+                name: destroyer.getName(),
+                directions: destroyer.getDirections(),
             },
             {
-                name: "submarine",
-                directions: [
-                    [0, 1, 2],
-                    [0, width, width * 2],
-                ],
+                name: submarine.getName(),
+                directions: submarine.getDirections(),
             },
             {
-                name: "cruiser",
-                directions: [
-                    [0, 1, 2],
-                    [0, width, width * 2],
-                ],
+                name: cruiser.getName(),
+                directions: cruiser.getDirections(),
             },
             {
-                name: "battleship",
-                directions: [
-                    [0, 1, 2, 3],
-                    [0, width, width * 2, width * 3],
-                ],
+                name: battleship.getName(),
+                directions: battleship.getDirections(),
             },
             {
-                name: "carrier",
-                directions: [
-                    [0, 1, 2, 3, 4],
-                    [0, width, width * 2, width * 3, width * 4],
-                ],
+                name: carrier.getName(),
+                directions: carrier.getDirections(),
             },
         ];
+
 
         createBoard(userGrid, userSquares);
         createBoard(computerGrid, computerSquares);
@@ -105,6 +100,7 @@ const DOMInterface = {
                 Math.random() * ship.directions.length
             );
             let current = ship.directions[randomDirection];
+			let direction;
             if (randomDirection === 0) direction = 1;
             if (randomDirection === 1) direction = 10;
             let randomStart = Math.abs(
@@ -137,21 +133,23 @@ const DOMInterface = {
         //Rotate the ships
         function rotate() {
             if (isHorizontal) {
-                destroyer.classList.toggle("destroyer-container-vertical");
-                submarine.classList.toggle("submarine-container-vertical");
-                cruiser.classList.toggle("cruiser-container-vertical");
-                battleship.classList.toggle("battleship-container-vertical");
-                carrier.classList.toggle("carrier-container-vertical");
+				destroyer.getElement().classList.toggle('destroyer-container-vertical');
+				submarine.getElement().classList.toggle('submarine-container-vertical');
+				cruiser.getElement().classList.toggle('cruiser-container-vertical');
+				battleship.getElement().classList.toggle('battleship-container-vertical');
+				carrier.getElement().classList.toggle('carrier-container-vertical');
+				displayGrid.classList.toggle('isHorizontal');
                 isHorizontal = false;
                 // console.log(isHorizontal)
                 return;
             }
             if (!isHorizontal) {
-                destroyer.classList.toggle("destroyer-container-vertical");
-                submarine.classList.toggle("submarine-container-vertical");
-                cruiser.classList.toggle("cruiser-container-vertical");
-                battleship.classList.toggle("battleship-container-vertical");
-                carrier.classList.toggle("carrier-container-vertical");
+				destroyer.getElement().classList.toggle('destroyer-container-vertical');
+				submarine.getElement().classList.toggle('submarine-container-vertical');
+				cruiser.getElement().classList.toggle('cruiser-container-vertical');
+				battleship.getElement().classList.toggle('battleship-container-vertical');
+				carrier.getElement().classList.toggle('carrier-container-vertical');
+				displayGrid.classList.toggle('isHorizontal');
                 isHorizontal = true;
                 // console.log(isHorizontal)
                 return;
@@ -220,11 +218,8 @@ const DOMInterface = {
         function dragDrop() {
             let shipNameWithLastId = draggedShip.lastChild.id;
             let shipClass = shipNameWithLastId.slice(0, -2);
-            // console.log(shipNameWithLastId);
-            // console.log(shipClass)
             let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
             let shipLastId = lastShipIndex + parseInt(this.dataset.id);
-            // console.log(shipLastId)
             const notAllowedHorizontal = [
                 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 1, 11, 21, 31, 41, 51,
                 61, 71, 81, 91, 2, 22, 32, 42, 52, 62, 72, 82, 92, 3, 13, 23,
@@ -245,7 +240,7 @@ const DOMInterface = {
                 10 * lastShipIndex
             );
 
-            selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1));
+            let selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1));
 
             shipLastId = shipLastId - selectedShipIndex;
             // console.log(shipLastId)
@@ -481,8 +476,8 @@ const DOMInterface = {
     },
 
     gameStart() {
-        this.gameLogic();
+        return this.gameLogic();
     },
 };
 
-module.exports = DOMInterface;
+export {DOMInterface};
