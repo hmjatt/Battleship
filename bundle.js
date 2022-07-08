@@ -2,38 +2,41 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/modules/DOMInterface.js":
-/*!*************************************!*\
-  !*** ./src/modules/DOMInterface.js ***!
-  \*************************************/
+/***/ "./src/modules/gameLogic.js":
+/*!**********************************!*\
+  !*** ./src/modules/gameLogic.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DOMInterface": () => (/* binding */ DOMInterface)
+/* harmony export */   "gameLogic": () => (/* binding */ gameLogic)
 /* harmony export */ });
 /* harmony import */ var _ships__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ships */ "./src/modules/ships.js");
 /* harmony import */ var _gameboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gameboard */ "./src/modules/gameboard.js");
 //Catche DOM
+// import DOMInterface from "./DOMInterface.js";
 
+ // document.addEventListener("DOMContentLoaded", DOMInterface);
 
 console.log("it works before separating modules");
-var DOMInterface = {
+var gameLogic = {
   gameLogic: function gameLogic() {
     var userGrid = document.querySelector(".grid-user");
     var computerGrid = document.querySelector(".grid-computer");
     var displayGrid = document.querySelector(".grid-display");
     var ships = document.querySelectorAll(".ship");
-    var destroyer = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('destroyer');
-    var submarine = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('submarine');
-    var cruiser = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('cruiser');
-    var battleship = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('battleship');
-    var carrier = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('carrier');
     var startButton = document.querySelector("#start");
     var rotateButton = document.querySelector("#rotate");
     var turnDisplay = document.querySelector("#whose-go");
     var infoDisplay = document.querySelector("#info");
     var setupButtons = document.getElementById("setup-buttons");
+    var destroyer = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('destroyer');
+    var submarine = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('submarine');
+    var cruiser = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('cruiser');
+    var battleship = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('battleship');
+    var carrier = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('carrier'); // const userGrid = DOMInterface.userGrid;
+
     var userSquares = [];
     var computerSquares = [];
     var gameMode = "singlePlayer";
@@ -80,16 +83,7 @@ var DOMInterface = {
         setupButtons.style.display = "none";
         playGameSingle();
       });
-    } // Create Board
-    // function gameGrid(grid, squares) {
-    //     for (let i = 0; i < width * width; i++) {
-    //         const square = document.createElement("div");
-    //         square.dataset.id = i;
-    //         grid.appendChild(square);
-    //         squares.push(square);
-    //     }
-    // }
-    //Draw the computers ships in random locations
+    } //Draw the computers ships in random locations
 
 
     function generate(ship) {
@@ -1194,15 +1188,17 @@ var __webpack_exports__ = {};
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style/styles.css */ "./src/public/style/styles.css");
-/* harmony import */ var _modules_DOMInterface_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/DOMInterface.js */ "./src/modules/DOMInterface.js");
+/* harmony import */ var _modules_gameLogic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/gameLogic */ "./src/modules/gameLogic.js");
+ // import DOMInterface from "../modules/DOMInterface";
 
  // import gameboard from "../modules/gameboard";
 // import ship from "../modules/ship";
+// document.addEventListener("DOMContentLoaded", DOMInterface);
 
-document.addEventListener('DOMContentLoaded', _modules_DOMInterface_js__WEBPACK_IMPORTED_MODULE_1__.DOMInterface); // document.addEventListener('DOMContentLoaded', gameboard);
+document.addEventListener("DOMContentLoaded", _modules_gameLogic__WEBPACK_IMPORTED_MODULE_1__.gameLogic); // document.addEventListener('DOMContentLoaded', gameboard);
 // document.addEventListener('DOMContentLoaded', ship);
 
-_modules_DOMInterface_js__WEBPACK_IMPORTED_MODULE_1__.DOMInterface.gameStart();
+_modules_gameLogic__WEBPACK_IMPORTED_MODULE_1__.gameLogic.gameStart();
 })();
 
 /******/ })()
