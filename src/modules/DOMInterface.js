@@ -1,6 +1,6 @@
 //Catche DOM
 
-console.log("it works");
+console.log("it works before separating modules");
 
 const DOMInterface = {
     gameLogic() {
