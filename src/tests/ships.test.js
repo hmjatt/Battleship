@@ -1,7 +1,7 @@
 const ships = require("../modules/ships.js");
 
 test("outputs an array of objects which include ship name, direction and length", () => {
-    expect(ships.shipModule.shipsTestObject()).toStrictEqual([
+    expect(ships.shipModule.shipsTestMethod()).toStrictEqual([
         {
             directions: [
                 [0, 1],

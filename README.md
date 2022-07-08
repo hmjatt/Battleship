@@ -69,7 +69,7 @@ Run Dev Server (Port 5500)
 
 2. ### Create Game Logic
 	- [x] Create DOM elements and cache them in `DOMInterface` module
-	- [x] Create `ships.js` module which contains `ships` factory function
+	- [x] Create `ships.js` module which contains `shipModule` factory function
 		- [x] `ships()` method - is an array of objects which include ship's name, length and it's direction
 	- [x] Create `gameboard.js` module which contains `gameboard` factory function
 		- [x] `gameGrid()` method - is an array of 100 elements
@@ -77,7 +77,7 @@ Run Dev Server (Port 5500)
 
 3. ### Test Game Logic
 	- [x] Test `ships.js` module
-		- [x] Test `shipsTestObject` method in `ships.test.js` which should return array of objects
+		- [x] Test `shipsTestMethod()` method in `ships.test.js` which should return array of objects
 	- [x] Test `gameboard.js` module
 		- [x] Test `gridTest()`	method, it should return array of 100 elements
 

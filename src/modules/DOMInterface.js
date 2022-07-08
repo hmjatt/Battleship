@@ -22,7 +22,10 @@ const DOMInterface = {
         const infoDisplay = document.querySelector("#info");
         const setupButtons = document.getElementById("setup-buttons");
         const userSquares = [];
-        const computerSquares = [];
+		const computerSquares = [];
+
+        
+
         const gameMode = "singlePlayer";
         let isHorizontal = true;
         let isGameOver = false;
@@ -82,7 +85,7 @@ const DOMInterface = {
             });
         }
 
-        //Create Board
+        // Create Board
         // function gameGrid(grid, squares) {
         //     for (let i = 0; i < width * width; i++) {
         //         const square = document.createElement("div");
@@ -127,6 +130,8 @@ const DOMInterface = {
                 );
             else generate(ship);
         }
+
+		
 
         //Rotate the ships
         function rotate() {

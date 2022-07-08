@@ -80,7 +80,7 @@ var DOMInterface = {
         setupButtons.style.display = "none";
         playGameSingle();
       });
-    } //Create Board
+    } // Create Board
     // function gameGrid(grid, squares) {
     //     for (let i = 0; i < width * width; i++) {
     //         const square = document.createElement("div");
@@ -538,7 +538,8 @@ var shipModule = {
       getDirections: getDirections
     };
   },
-  shipsTestObject: function shipsTestObject() {
+  // 
+  shipsTestMethod: function shipsTestMethod() {
     // width variable representing numbers of elements in gameboard
     // ships need to spaced out
 

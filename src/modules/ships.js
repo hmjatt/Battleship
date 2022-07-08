@@ -44,7 +44,9 @@ const shipModule = {
         return { getName, getElement, getDirections };
     },
 
-    shipsTestObject() {
+    // 
+
+    shipsTestMethod() {
         // width variable representing numbers of elements in gameboard
         // ships need to spaced out
 
