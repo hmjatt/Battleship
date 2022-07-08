@@ -1,50 +1,8 @@
-// import ship from "./ship";
-
-const userSquares = []
-const computerSquares = []
-let gridArray = []
-const width =  10
-const shipArray = [
-    {
-      name: 'destroyer',
-      directions: [
-        [0, 1],
-        [0, width]
-      ]
-    },
-    {
-      name: 'submarine',
-      directions: [
-        [0, 1, 2],
-        [0, width, width*2]
-      ]
-    },
-    {
-      name: 'cruiser',
-      directions: [
-        [0, 1, 2],
-        [0, width, width*2]
-      ]
-    },
-    {
-      name: 'battleship',
-      directions: [
-        [0, 1, 2, 3],
-        [0, width, width*2, width*3]
-      ]
-    },
-    {
-      name: 'carrier',
-      directions: [
-        [0, 1, 2, 3, 4],
-        [0, width, width*2, width*3, width*4]
-      ]
-    },
-  ]
+let gridArray = [];
+const width = 10;
 
 const gameboard = {
     // width variable representing number of elements in a row in gameGrid() method
-    
 
     /*create gameGrid() helper function that generates a grid
      * it is a array of 10 x 10 elements(100) filled with 0's
@@ -62,61 +20,22 @@ const gameboard = {
      */
 
     gameGrid() {
-      
+        const createBoards = (grid, squares) => {
+            for (let i = 0; i < width ** 2; i++) {
+                const square = document.createElement("div");
+                square.dataset.id = i;
+                grid.appendChild(square);
+                squares.push(square);
+            }
+        };
+    },
+
+    gridTest() {
         for (let i = 0; i < width * width; i++) {
             gridArray.push(i);
         }
         return gridArray;
     },
-
-
-	// place ships on gameGrid
-    placeShips(ship) {
-        let randomDirection = Math.floor(
-            Math.random() * ship.directions.length
-        );
-        let current = ship.directions[randomDirection];
-		let direction;
-        if (randomDirection === 0) direction = 1;
-        if (randomDirection === 1) direction = 10;
-        let randomStart = Math.abs(
-            Math.floor(
-                Math.random() * computerSquares.length -
-                    ship.directions[0].length * direction
-            )
-        );
-
-        // const isTaken = current.some((index) =>
-        //     computerSquares[randomStart + index].classList.contains("taken")
-        // );
-        // const isAtRightEdge = current.some(
-        //     (index) => (randomStart + index) % width === width - 1
-        // );
-        // const isAtLeftEdge = current.some(
-        //     (index) => (randomStart + index) % width === 0
-        // );
-
-        // if (!isTaken && !isAtRightEdge && !isAtLeftEdge)
-        //     current.forEach((index) =>
-        //         computerSquares[randomStart + index].classList.add(
-        //             "taken",
-        //             ship.name
-        //         )
-        //     );
-        // else this.placeShips(ship);
-    },
-
-	generateShips() {
-		this.gameGrid();
-		this.placeShips(shipArray[0])
-		this.placeShips(shipArray[1])
-		this.placeShips(shipArray[2])
-		this.placeShips(shipArray[3])
-		this.placeShips(shipArray[4])
-
-		
-		return gridArray;
-	}
 };
 
-module.exports = gameboard;
+export { gameboard };
