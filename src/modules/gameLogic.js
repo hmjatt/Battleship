@@ -1,26 +1,34 @@
 //Catche DOM
+// import DOMInterface from "./DOMInterface.js";
 import {shipModule} from "./ships";
 import {gameboard} from "./gameboard";
 
+// document.addEventListener("DOMContentLoaded", DOMInterface);
+
+
 console.log("it works before separating modules");
 
-const DOMInterface = {
+const gameLogic = {
     gameLogic() {
-        const userGrid = document.querySelector(".grid-user");
+
+		const userGrid = document.querySelector(".grid-user");
         const computerGrid = document.querySelector(".grid-computer");
         const displayGrid = document.querySelector(".grid-display");
         const ships = document.querySelectorAll(".ship");
-
-		const destroyer = shipModule.ships('destroyer');
-		const submarine = shipModule.ships('submarine');
-		const cruiser = shipModule.ships('cruiser');
-		const battleship = shipModule.ships('battleship');
-		const carrier = shipModule.ships('carrier');
         const startButton = document.querySelector("#start");
         const rotateButton = document.querySelector("#rotate");
         const turnDisplay = document.querySelector("#whose-go");
         const infoDisplay = document.querySelector("#info");
         const setupButtons = document.getElementById("setup-buttons");
+        
+
+		const destroyer = shipModule.ships('destroyer');
+		const submarine = shipModule.ships('submarine');
+		const cruiser = shipModule.ships('cruiser');
+		const battleship = shipModule.ships('battleship');
+		const carrier = shipModule.ships('carrier')
+		// const userGrid = DOMInterface.userGrid;
+
         const userSquares = [];
 		const computerSquares = [];
 
@@ -84,16 +92,6 @@ const DOMInterface = {
                 playGameSingle();
             });
         }
-
-        // Create Board
-        // function gameGrid(grid, squares) {
-        //     for (let i = 0; i < width * width; i++) {
-        //         const square = document.createElement("div");
-        //         square.dataset.id = i;
-        //         grid.appendChild(square);
-        //         squares.push(square);
-        //     }
-        // }
 
         //Draw the computers ships in random locations
         function generate(ship) {
@@ -483,4 +481,4 @@ const DOMInterface = {
     },
 };
 
-export {DOMInterface};
+export {gameLogic};
