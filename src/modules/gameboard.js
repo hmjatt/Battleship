@@ -19,15 +19,15 @@ const gameboard = {
      *	90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
      */
 
-    gameGrid() {
-        const createBoards = (grid, squares) => {
+    gameGrid(grid, squares) {
+        
             for (let i = 0; i < width ** 2; i++) {
                 const square = document.createElement("div");
                 square.dataset.id = i;
                 grid.appendChild(square);
                 squares.push(square);
             }
-        };
+        
     },
 
     gridTest() {

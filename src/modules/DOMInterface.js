@@ -1,5 +1,6 @@
 //Catche DOM
 import {shipModule} from "./ships";
+import {gameboard} from "./gameboard";
 
 console.log("it works before separating modules");
 
@@ -61,8 +62,8 @@ const DOMInterface = {
         ];
 
 
-        createBoard(userGrid, userSquares);
-        createBoard(computerGrid, computerSquares);
+        gameboard.gameGrid(userGrid, userSquares);
+        gameboard.gameGrid(computerGrid, computerSquares);
 
         // Select Player Mode
         startSinglePlayer();
@@ -82,14 +83,14 @@ const DOMInterface = {
         }
 
         //Create Board
-        function createBoard(grid, squares) {
-            for (let i = 0; i < width * width; i++) {
-                const square = document.createElement("div");
-                square.dataset.id = i;
-                grid.appendChild(square);
-                squares.push(square);
-            }
-        }
+        // function gameGrid(grid, squares) {
+        //     for (let i = 0; i < width * width; i++) {
+        //         const square = document.createElement("div");
+        //         square.dataset.id = i;
+        //         grid.appendChild(square);
+        //         squares.push(square);
+        //     }
+        // }
 
         //Draw the computers ships in random locations
         function generate(ship) {
