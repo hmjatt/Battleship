@@ -13,7 +13,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "DOMInterface": () => (/* binding */ DOMInterface)
 /* harmony export */ });
 /* harmony import */ var _ships__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ships */ "./src/modules/ships.js");
+/* harmony import */ var _gameboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gameboard */ "./src/modules/gameboard.js");
 //Catche DOM
+
 
 console.log("it works before separating modules");
 var DOMInterface = {
@@ -63,8 +65,8 @@ var DOMInterface = {
       name: carrier.getName(),
       directions: carrier.getDirections()
     }];
-    createBoard(userGrid, userSquares);
-    createBoard(computerGrid, computerSquares); // Select Player Mode
+    _gameboard__WEBPACK_IMPORTED_MODULE_1__.gameboard.gameGrid(userGrid, userSquares);
+    _gameboard__WEBPACK_IMPORTED_MODULE_1__.gameboard.gameGrid(computerGrid, computerSquares); // Select Player Mode
 
     startSinglePlayer(); // Single Player
 
@@ -79,16 +81,15 @@ var DOMInterface = {
         playGameSingle();
       });
     } //Create Board
-
-
-    function createBoard(grid, squares) {
-      for (var i = 0; i < width * width; i++) {
-        var square = document.createElement("div");
-        square.dataset.id = i;
-        grid.appendChild(square);
-        squares.push(square);
-      }
-    } //Draw the computers ships in random locations
+    // function gameGrid(grid, squares) {
+    //     for (let i = 0; i < width * width; i++) {
+    //         const square = document.createElement("div");
+    //         square.dataset.id = i;
+    //         grid.appendChild(square);
+    //         squares.push(square);
+    //     }
+    // }
+    //Draw the computers ships in random locations
 
 
     function generate(ship) {
@@ -414,6 +415,55 @@ var DOMInterface = {
   },
   gameStart: function gameStart() {
     return this.gameLogic();
+  }
+};
+
+
+/***/ }),
+
+/***/ "./src/modules/gameboard.js":
+/*!**********************************!*\
+  !*** ./src/modules/gameboard.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "gameboard": () => (/* binding */ gameboard)
+/* harmony export */ });
+var gridArray = [];
+var width = 10;
+var gameboard = {
+  // width variable representing number of elements in a row in gameGrid() method
+
+  /*create gameGrid() helper function that generates a grid
+   * it is a array of 10 x 10 elements(100) filled with 0's
+   * e.g.
+   *	[0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+   *	10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+   *	20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+   *	30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+   *	40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+   *	50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+   *	60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+   *	70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
+   *	80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
+   *	90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+   */
+  gameGrid: function gameGrid(grid, squares) {
+    for (var i = 0; i < Math.pow(width, 2); i++) {
+      var square = document.createElement("div");
+      square.dataset.id = i;
+      grid.appendChild(square);
+      squares.push(square);
+    }
+  },
+  gridTest: function gridTest() {
+    for (var i = 0; i < width * width; i++) {
+      gridArray.push(i);
+    }
+
+    return gridArray;
   }
 };
 
