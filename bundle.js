@@ -51,6 +51,7 @@ var DOMInterface = {
     var shotFired = -1; // const shipArray = [];
     //Ships
 
+    console.log(_shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships().getDirections);
     var shipArray = [{
       name: destroyer.getName(),
       directions: destroyer.getDirections()
