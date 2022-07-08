@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DOMInterface": () => (/* binding */ DOMInterface)
 /* harmony export */ });
-/* harmony import */ var _shipObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./shipObject */ "./src/modules/shipObject.js");
+/* harmony import */ var _ships__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ships */ "./src/modules/ships.js");
 //Catche DOM
 
 console.log("it works before separating modules");
@@ -27,11 +27,11 @@ var DOMInterface = {
     // const battleship = document.querySelector(".battleship-container");
     // const carrier = document.querySelector(".carrier-container");
 
-    var destroyer = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('destroyer');
-    var submarine = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('submarine');
-    var cruiser = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('cruiser');
-    var battleship = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('battleship');
-    var carrier = _shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships('carrier');
+    var destroyer = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('destroyer');
+    var submarine = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('submarine');
+    var cruiser = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('cruiser');
+    var battleship = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('battleship');
+    var carrier = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships('carrier');
     var startButton = document.querySelector("#start");
     var rotateButton = document.querySelector("#rotate");
     var turnDisplay = document.querySelector("#whose-go");
@@ -50,8 +50,8 @@ var DOMInterface = {
     var allShipsPlaced = false;
     var shotFired = -1; // const shipArray = [];
     //Ships
+    // console.log (ships.ships().getDirections)
 
-    console.log(_shipObject__WEBPACK_IMPORTED_MODULE_0__.shipObject.ships().getDirections);
     var shipArray = [{
       name: destroyer.getName(),
       directions: destroyer.getDirections()
@@ -425,44 +425,23 @@ var DOMInterface = {
 
 /***/ }),
 
-/***/ "./src/modules/shipObject.js":
-/*!***********************************!*\
-  !*** ./src/modules/shipObject.js ***!
-  \***********************************/
+/***/ "./src/modules/ships.js":
+/*!******************************!*\
+  !*** ./src/modules/ships.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "shipObject": () => (/* binding */ shipObject)
+/* harmony export */   "shipModule": () => (/* binding */ shipModule)
 /* harmony export */ });
-var shipObject = {
-  // width variable representing numbers of elements in gameboard
-  // ships need to spaced out
-
-  /* create shipArray which is array of objects including ship's name,
-   *	length and it's direction are X and Y co-ordinates respectively
-   *	[{
-   *		directions: [[0, 1], [0, 10]],
-   *		name: "destroyer"
-   *		}, {
-   *		directions: [[0, 1, 2], [0, 10, 20]],
-   *		name: "submarine"
-   *		}, {
-   *		directions: [[0, 1, 2], [0, 10, 20]],
-   *		name: "cruiser"
-   *		}, {
-   *		directions: [[0, 1, 2, 3], [0, 10, 20, 30]],
-   *		name: "battleship"
-   *		}, {
-   *		directions: [[0, 1, 2, 3, 4], [0, 10, 20, 30, 40]],
-   *		name: "carrier"
-   *	}]
-   */
+var shipArray = [];
+var shipModule = {
   ships: function ships(name) {
     var width = 10;
     var elementoHTML;
     var X;
-    var Y;
+    var Y; // let name = name;
 
     switch (name) {
       case "destroyer":
@@ -513,6 +492,47 @@ var shipObject = {
       getElement: getElement,
       getDirections: getDirections
     };
+  },
+  shipsTestObject: function shipsTestObject() {
+    // width variable representing numbers of elements in gameboard
+    // ships need to spaced out
+
+    /* create shipArray which is array of objects including ship's name,
+    length and it's direction are X and Y co-ordinates respectively
+    [{
+    directions: [[0, 1], [0, 10]],
+    name: "destroyer"
+    }, {
+    directions: [[0, 1, 2], [0, 10, 20]],
+    name: "submarine"
+    }, {
+    directions: [[0, 1, 2], [0, 10, 20]],
+    name: "cruiser"
+    }, {
+    directions: [[0, 1, 2, 3], [0, 10, 20, 30]],
+    name: "battleship"
+    }, {
+    directions: [[0, 1, 2, 3, 4], [0, 10, 20, 30, 40]],
+    name: "carrier"
+    }]
+    */
+    shipArray = [{
+      directions: [[0, 1], [0, 10]],
+      name: "destroyer"
+    }, {
+      directions: [[0, 1, 2], [0, 10, 20]],
+      name: "submarine"
+    }, {
+      directions: [[0, 1, 2], [0, 10, 20]],
+      name: "cruiser"
+    }, {
+      directions: [[0, 1, 2, 3], [0, 10, 20, 30]],
+      name: "battleship"
+    }, {
+      directions: [[0, 1, 2, 3, 4], [0, 10, 20, 30, 40]],
+      name: "carrier"
+    }];
+    return shipArray;
   }
 };
 

@@ -1,5 +1,5 @@
 //Catche DOM
-import {shipObject} from "./shipObject";
+import {shipModule} from "./ships";
 
 console.log("it works before separating modules");
 
@@ -15,11 +15,11 @@ const DOMInterface = {
         // const battleship = document.querySelector(".battleship-container");
         // const carrier = document.querySelector(".carrier-container");
 
-		const destroyer = shipObject.ships('destroyer');
-		const submarine = shipObject.ships('submarine');
-		const cruiser = shipObject.ships('cruiser');
-		const battleship = shipObject.ships('battleship');
-		const carrier = shipObject.ships('carrier');
+		const destroyer = shipModule.ships('destroyer');
+		const submarine = shipModule.ships('submarine');
+		const cruiser = shipModule.ships('cruiser');
+		const battleship = shipModule.ships('battleship');
+		const carrier = shipModule.ships('carrier');
         const startButton = document.querySelector("#start");
         const rotateButton = document.querySelector("#rotate");
         const turnDisplay = document.querySelector("#whose-go");
@@ -40,7 +40,7 @@ const DOMInterface = {
 		// const shipArray = [];
         //Ships
 
-		console.log (shipObject.ships().getDirections)
+		// console.log (ships.ships().getDirections)
 
 		const shipArray = [
             {

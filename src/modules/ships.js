@@ -1,6 +1,6 @@
 let shipArray = [];
 
-const shipObject = {
+const shipModule = {
     ships(name) {
         const width = 10;
         let elementoHTML;
@@ -110,4 +110,4 @@ const shipObject = {
     },
 };
 
-export { shipObject };
+export { shipModule };
