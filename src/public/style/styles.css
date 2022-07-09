@@ -37,10 +37,30 @@ body {
 
 .home {
 	display: flex;
+	flex-direction: column;
+	align-self: center;
+	justify-content: center;
+	height: 100vh;
+	text-align: center;
+}
+
+.home button {
+	font-size: 2em;
+	background-color: var(--clr-btn-bkgrnd);
+	padding: 0.5em 1em;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 0.2em;
+	color: #333;
+	margin: 4%;
 }
 
 #gameContainer {
 	display: none;
+	flex-direction: column;
+	align-items: center;
 }
 
 .splash-container {

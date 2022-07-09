@@ -90,7 +90,7 @@ const gameLogic = {
         // Single Player
         function startSinglePlayer() {
 			homePage.style.display = "none";
-			gameContainer.style.display = "block";
+			gameContainer.style.display = "flex";
 
             generate(shipArray[0]);
             generate(shipArray[1]);
