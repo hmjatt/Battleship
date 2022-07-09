@@ -36,6 +36,10 @@ body {
 }
 
 .home {
+	display: flex;
+}
+
+#gameContainer {
 	display: none;
 }
 
@@ -740,9 +744,10 @@ body {
 		height: 3vmin;
 	}
 
-	.hidden-info {
-		margin-left: 5%;
+	#computerFleet, #userFleet {
+		margin-left: 7%;
 	}
+	
 
 }
 
@@ -778,5 +783,6 @@ body {
 	.setup-buttons button {
 		margin: 1%;
 	}
+	
 
 }

@@ -16,6 +16,9 @@ const gameLogic = {
         const infoDisplay = document.querySelector("#info");
         const setupButtons = document.getElementById("setup-buttons");
 		const playAgain = document.getElementById("playAgain");
+		const gameContainer = document.getElementById("gameContainer");
+		const homePage = document.getElementById("homePage");
+		const startGameBtn = document.getElementById("startGame");
         
 
 		const destroyer = shipModule.ships('destroyer');
@@ -40,11 +43,21 @@ const gameLogic = {
         let enemyReady = false;
         let allShipsPlaced = false;
         let shotFired = -1;
-		// const shipArray = [];
+
+		//startGame
+
+		// function startGame() {
+		// 	homePage.style.display = "flex";
+		// 	gameContainer.style.display = "none";
+			
+		// }
+
+		startGameBtn.addEventListener("click", startSinglePlayer);
+
+		// startGame();
+
+
         //Ships
-
-		// console.log (ships.ships().getDirections)
-
 		const shipArray = [
             {
                 name: destroyer.getName(),
@@ -72,11 +85,13 @@ const gameLogic = {
         gameboard.gameGrid(userGrid, userSquares);
         gameboard.gameGrid(computerGrid, computerSquares);
 
-        // Select Player Mode
-        startSinglePlayer();
+        
 
         // Single Player
         function startSinglePlayer() {
+			homePage.style.display = "none";
+			gameContainer.style.display = "block";
+
             generate(shipArray[0]);
             generate(shipArray[1]);
             generate(shipArray[2]);
@@ -463,16 +478,13 @@ const gameLogic = {
             isGameOver = true;
             startButton.removeEventListener("click", playGameSingle);
 			playAgain.style.display = "flex";
-			playAgain.addEventListener("click", playAgainfxn());
+			playAgain.addEventListener("click", playAgainFxn());
         }
 
-		function playAgainfxn() {
+		function playAgainFxn() {
 			playAgain.style.display = "none";
-			reloadPage();
-		}
-
-		function reloadPage() {
-			window.location.reload();
+			gameContainer.style.display = "none";
+			homePage.style.display = "flex";
 		}
     },
 
