@@ -1,16 +1,13 @@
 :root {
 	--clr-bkgrnd: #deeefb;
-	/* --clr-user-fleet: #FCB5AC; */
-	/* --clr-computer-fleet: hsl(250, 31%, 50%); */
 	--clr-text-fleet: hsl(0, 0%, 90%);
-	/* --clr-grid-bkgrnd: #deeefb; */
-	/* --clr-divider-line: rgb(196, 196, 196); */
 	--clr-ship-bkgrnd: #474758;
 	--clr-btn: #333;
 	--clr-btn-bkgrnd: #FCB5AC;
 	--clr-btn-bkgrnd-fcs: #B99095;
-	--clr-miss: red;
-	--clr-hit: white;
+	--clr-miss-usergrid: rgb(99, 163, 251);
+	--clr-hit: rgb(244, 75, 24);
+	--clr-miss: rgb(221, 221, 221);
 	--clr-white: white;
 	--clr-bg-div: #B5E5CF;
 	--clr-bg-computer: #3D5B59;
@@ -122,12 +119,10 @@ body {
 }
 
 .battleship-grid {
-	/* margin: 2vmin; */
 	display: grid;
 	background-color: var(--clr-bkgrnd);
 	grid-template-rows: repeat(10, 4.0vmin);
 	grid-template-columns: repeat(10, 4.0vmin);
-	/* max-height: 50vh; */
 }
 
 /* GRID FOR USER */
@@ -514,7 +509,6 @@ body {
 	border-radius: 2.3vmin;
 	border-bottom-right-radius: 1.0vmin;
 	border-top-right-radius: 1.0vmin;
-	/* background-color: var(--clr-ship-bkgrnd); */
 }
 
 
@@ -608,12 +602,16 @@ body {
 	height: 2vmin;
 }
 
+#user .miss::after {
+	background-color: var(--clr-miss-usergrid);
+}
+
 .miss::after {
-	background-color: var(--clr-hit);
+	background-color: var(--clr-miss);
 }
 
 .boom::after {
-	background-color: var(--clr-miss);
+	background-color: var(--clr-hit);
 }
 
 .miss::before {
