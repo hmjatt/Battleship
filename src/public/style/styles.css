@@ -2,8 +2,8 @@
 	--clr-bkgrnd: #deeefb;
 	--clr-text-fleet: hsl(0, 0%, 90%);
 	--clr-ship-bkgrnd: #474758;
-	--clr-btn-bkgrnd: #FCB5AC;
-	--clr-btn-bkgrnd-fcs: #B99095;
+	--clr-btn-bkgrnd: #b9b4ecd5;
+	--clr-btn-bkgrnd-fcs: #9795aad5;
 	--clr-miss-usergrid: rgb(99, 163, 251);
 	--clr-hit: rgb(244, 75, 24);
 	--clr-miss: rgb(221, 221, 221);
@@ -699,10 +699,10 @@ body {
 		grid-template-rows: repeat(11, 6.0vmin);
 	}
 
-	.grid-display {
+	/* .grid-display {
 		flex-direction: column;
 		align-items: center;
-	}
+	} */
 
 	.ship {
 		width: calc(6vmin * var(--width, 1));
