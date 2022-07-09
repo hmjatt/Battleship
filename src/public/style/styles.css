@@ -8,8 +8,8 @@
 	--clr-hit: rgb(244, 75, 24);
 	--clr-miss: rgb(221, 221, 221);
 	--clr-white: white;
-	--clr-bg-div: #B5E5CF;
-	--clr-bg-computer: #3D5B59;
+	--clr-bg-div: #7FD1AE;
+	--clr-bg-computer: #00C6B0;
 }
 
 html {
@@ -44,7 +44,8 @@ body {
 	text-align: center;
 }
 
-.home button {
+.home button,
+#playAgain {
 	font-size: 2em;
 	background-color: var(--clr-btn-bkgrnd);
 	padding: 0.5em 1em;
@@ -55,6 +56,13 @@ body {
 	border-radius: 0.2em;
 	color: #333;
 	margin: 4%;
+}
+
+.home button:hover,
+.home button:focus,
+#playAgain:hover,
+#playAgain:focus {
+	background-color: var(--clr-btn-bkgrnd-fcs);
 }
 
 #gameContainer {
@@ -455,7 +463,7 @@ body {
 .taken.start.vertical::before {
 	border-top-left-radius: 50%;
 	border-top-right-radius: 50%;
-	
+
 }
 
 .taken.end.vertical,
@@ -556,7 +564,7 @@ body {
 	border-radius: 2.3vmin;
 	border-bottom-right-radius: 1.0vmin;
 	border-bottom-left-radius: 1.0vmin;
-	
+
 }
 
 
@@ -574,7 +582,7 @@ body {
 }
 
 .destroyer-container {
-	
+
 	--width: 2;
 }
 
@@ -726,7 +734,8 @@ body {
 		grid-template-columns: repeat(10, 6.0vmin);
 	}
 
-	.user-grid-labels, .computer-grid-labels {
+	.user-grid-labels,
+	.computer-grid-labels {
 		grid-template-columns: repeat(11, 6.0vmin);
 		grid-template-rows: repeat(11, 6.0vmin);
 	}
@@ -764,10 +773,11 @@ body {
 		height: 3vmin;
 	}
 
-	#computerFleet, #userFleet {
+	#computerFleet,
+	#userFleet {
 		margin-left: 7%;
 	}
-	
+
 
 }
 
@@ -779,7 +789,8 @@ body {
 		grid-template-columns: repeat(10, 8.0vmin);
 	}
 
-	.user-grid-labels, .computer-grid-labels {
+	.user-grid-labels,
+	.computer-grid-labels {
 		grid-template-columns: repeat(11, 8.0vmin);
 		grid-template-rows: repeat(11, 8.0vmin);
 	}
@@ -803,6 +814,6 @@ body {
 	.setup-buttons button {
 		margin: 1%;
 	}
-	
+
 
 }

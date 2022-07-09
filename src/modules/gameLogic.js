@@ -90,6 +90,7 @@ const gameLogic = {
         // Single Player
         function startSinglePlayer() {
 			homePage.style.display = "none";
+
 			gameContainer.style.display = "flex";
 
             generate(shipArray[0]);
@@ -478,8 +479,9 @@ const gameLogic = {
             isGameOver = true;
             startButton.removeEventListener("click", playGameSingle);
 			playAgain.style.display = "flex";
-			playAgain.addEventListener("click", playAgainFxn());
         }
+
+		playAgain.addEventListener("click", playAgainFxn);
 
 		function playAgainFxn() {
 			playAgain.style.display = "none";
