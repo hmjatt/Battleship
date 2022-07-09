@@ -3,9 +3,9 @@
 	/* --clr-user-fleet: #FCB5AC; */
 	/* --clr-computer-fleet: hsl(250, 31%, 50%); */
 	--clr-text-fleet: hsl(0, 0%, 90%);
-	--clr-grid-bkgrnd: #deeefb;
+	/* --clr-grid-bkgrnd: #deeefb; */
 	--clr-divider-line: rgb(196, 196, 196);
-	--clr-ship-bkgrnd: hsl(243, 33%, 61%);
+	--clr-ship-bkgrnd: #474758;
 	--clr-btn: #333;
 	--clr-btn-bkgrnd: hsl(51, 100%, 64%);
 	--clr-btn-bkgrnd-fcs: hsl(51, 100%, 44%);
@@ -121,7 +121,7 @@ body {
 .battleship-grid {
 	/* margin: 2vmin; */
 	display: grid;
-	background-color: var(--clr-grid-bkgrnd);
+	background-color: var(--clr-bkgrnd);
 	grid-template-rows: repeat(10, 4.6vmin);
 	grid-template-columns: repeat(10, 4.6vmin);
 	/* max-height: 50vh; */
@@ -421,6 +421,7 @@ body {
 .taken.start.vertical::before {
 	border-top-left-radius: 50%;
 	border-top-right-radius: 50%;
+	
 }
 
 .taken.end.vertical,
@@ -462,6 +463,10 @@ body {
 	animation: ripplesX 3s linear infinite;
 	border-top: none;
 	border-bottom: none;
+}
+
+.grid-user .taken {
+	background-color: var(--clr-ship-bkgrnd);
 }
 
 @keyframes ripplesX {
@@ -506,6 +511,7 @@ body {
 	border-radius: 2.3vmin;
 	border-bottom-right-radius: 1.0vmin;
 	border-top-right-radius: 1.0vmin;
+	/* background-color: var(--clr-ship-bkgrnd); */
 }
 
 
@@ -517,6 +523,7 @@ body {
 	border-radius: 2.3vmin;
 	border-bottom-right-radius: 1.0vmin;
 	border-bottom-left-radius: 1.0vmin;
+	
 }
 
 
@@ -534,6 +541,7 @@ body {
 }
 
 .destroyer-container {
+	
 	--width: 2;
 }
 
