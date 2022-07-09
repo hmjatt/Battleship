@@ -300,7 +300,7 @@ const gameLogic = {
                     square.addEventListener("click", function (e) {
                         shotFired = square.dataset.id;
                         revealSquare(square.classList);
-						console.log(shotFired)
+						// console.log(shotFired)
                     })
                 );
             }

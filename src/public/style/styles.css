@@ -2,7 +2,6 @@
 	--clr-bkgrnd: #deeefb;
 	--clr-text-fleet: hsl(0, 0%, 90%);
 	--clr-ship-bkgrnd: #474758;
-	--clr-btn: #333;
 	--clr-btn-bkgrnd: #FCB5AC;
 	--clr-btn-bkgrnd-fcs: #B99095;
 	--clr-miss-usergrid: rgb(99, 163, 251);
@@ -585,7 +584,9 @@ body {
 	--width: 1;
 }
 
+
 .hidden-info {
+	font-weight: 500;
 	font-size: 1.5rem;
 	align-items: center;
 	flex-direction: column;
@@ -703,6 +704,14 @@ body {
 		align-items: center;
 	}
 
+	.ship {
+		width: calc(6vmin * var(--width, 1));
+		height: calc(6vmin * var(--height, 1));
+		border-radius: 3vmin;
+		border-bottom-right-radius: 1vmin;
+		border-top-right-radius: 1vmin;
+	}
+
 	.vertical-line {
 		display: none;
 	}
@@ -722,10 +731,15 @@ body {
 		width: 3vmin;
 		height: 3vmin;
 	}
+
+	.hidden-info {
+		margin-left: 5%;
+	}
+
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
 
 	.battleship-grid {
 		grid-template-rows: repeat(10, 8.0vmin);
@@ -748,5 +762,13 @@ body {
 		height: 4vmin;
 	}
 
+	.setup-buttons {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.setup-buttons button {
+		margin: 1%;
+	}
 
 }
