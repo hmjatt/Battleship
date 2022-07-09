@@ -136,6 +136,10 @@ Run Dev Server (Port 5500)
 	- Let users take turn by passing the device back and forth.
 	- implement a `pass device` screen so players don't see each other's boards!
 
+3. Reduce tight coupling of code in `gameLogic.js` and divide code into smaller modules.
+
+4. Improve testing by reducing mocking.
+
 
 #### Quote
 
