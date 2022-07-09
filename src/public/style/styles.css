@@ -173,7 +173,24 @@ body {
     width: calc(4.6vmin * var(--width, 1));
     height: calc(4.6vmin * var(--height, 1));
     border-radius: 2.3vmin;
+	border-bottom-right-radius: 1.0vmin;
+	border-top-right-radius: 1.0vmin; 
+
+	/* border-radius:20px/50% */
+	/* position: relative; */
 }
+
+/* .ship::before {
+	content: "";
+	position: absolute;
+	right: 90%;
+	top: calc(1.2vmin * var(--height, 1));
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-right: 40px solid red;
+	border-bottom: 20px solid transparent;
+} */
 
 .battleship-grid div {
     border: 1px solid hsla(0, 0%, 100%, 0.2);
