@@ -1,6 +1,24 @@
+:root {
+	--clr-bkgrnd: #deeefb;
+	--clr-user-fleet: hsl(358, 79%, 70%);
+	--clr-computer-fleet: hsl(250, 31%, 50%);
+	--clr-text-fleet: hsl(0, 0%, 90%);
+	--clr-grid-bkgrnd: #cde1f3;
+	--clr-divider-line: rgb(196, 196, 196);
+	--clr-ship-bkgrnd: hsl(243, 33%, 61%);
+	--clr-btn: #333;
+	--clr-btn-bkgrnd: hsl(51, 100%, 64%);
+	--clr-btn-bkgrnd-fcs: hsl(51, 100%, 44%);
+	--clr-miss: red;
+	--clr-hit: white;
+	--clr-white: white;
+	--clr-bg-div: #B5E5CF;
+}
+
 body {
 	margin: 0;
-	background-color: #f3f3f3;
+	background-color: var(--clr-bkgrnd);
+	background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23369af4' fill-opacity='0.11'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 	overflow-x: hidden;
 }
 
@@ -36,7 +54,7 @@ body {
 
 .btn {
 	font-size: inherit;
-	background-color: hsl(30, 100%, 50%);
+	background-color: var(--clr-btn-bkgrnd);
 	padding: 0.5em 1em;
 	outline: none;
 	border: none;
@@ -48,7 +66,7 @@ body {
 
 .btn:hover,
 .btn:focus {
-	background-color: hsl(30, 100%, 40%);
+	background-color: var(--clr-btn-bkgrnd-fcs);
 }
 
 .splash-btn {
@@ -67,7 +85,8 @@ body {
 	padding: 2%;
 }
 
-#user, #computer {
+#user,
+#computer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -75,24 +94,22 @@ body {
 
 #userFleet {
 	width: 50%;
-	background-color: hsl(15, 74%, 34%);
+	background-color: var(--clr-user-fleet);
 	border-radius: 4px;
 	text-align: center;
-	color:hsl(0, 0%, 90%);
+	color: var(--clr-text-fleet);
 }
 
 #computerFleet {
 	width: 50%;
-	background-color: hsl(0, 1%, 30%);
+	background-color: var(--clr-computer-fleet);
 	border-radius: 4px;
 	text-align: center;
-	color:hsl(0, 0%, 93%);
+	color: var(--clr-text-fleet);
 }
 
 .vertical-line {
-	border-right: 2px solid rgb(196, 196, 196);
-	/* margin: 0 6% 0 6%; */
-	/* height: ; */
+	border-right: 2px solid var(--clr-divider-line);
 }
 
 .horizontal-line {
@@ -102,7 +119,7 @@ body {
 .battleship-grid {
 	/* margin: 2vmin; */
 	display: grid;
-	background-color: hsl(200, 100%, 50%);
+	background-color: var(--clr-grid-bkgrnd);
 	grid-template-rows: repeat(10, 4.6vmin);
 	grid-template-columns: repeat(10, 4.6vmin);
 	/* max-height: 50vh; */
@@ -389,14 +406,14 @@ body {
 
 .grid-computer>.taken,
 .grid-computer>.boom {
-	background-color: hsl(200, 100%, 50%) !important;
+	background-color: var(--clr-grid-bkgrnd);
 	border-radius: 0 !important;
 }
 
 .taken,
 .ship {
 	position: relative;
-	background-color: hsl(0, 0%, 80%);
+	background-color: var(--clr-ship-bkgrnd);
 }
 
 .taken.start.vertical,
@@ -427,7 +444,7 @@ body {
 .taken.horizontal::before {
 	content: "";
 	position: absolute;
-	border: 0.3vmin solid white;
+	border: 0.3vmin solid var(--clr-white);
 	top: -1px;
 	bottom: -1px;
 	left: -1px;
@@ -490,6 +507,12 @@ body {
 	border-top-right-radius: 1.0vmin;
 }
 
+/* #computer .carrier {
+	border-radius: 2.3vmin;
+	border-bottom-right-radius: 1.0vmin;
+	border-bottom-left-radius: 1.0vmin;
+} */
+
 .destroyer-container-vertical,
 .submarine-container-vertical,
 .cruiser-container-vertical,
@@ -502,7 +525,10 @@ body {
 
 
 .battleship-grid div {
-	border: 1px solid hsla(0, 0%, 100%, 0.2);
+	margin: 1px;
+	border: 1px solid hsla(0, 0%, 100%, 0.409);
+	background-color: var(--clr-bg-div);
+	border-radius: 5px;
 }
 
 .destroyer-container {
@@ -570,18 +596,18 @@ body {
 }
 
 .miss::after {
-	background-color: white;
+	background-color: var(--clr-hit);
 }
 
 .boom::after {
-	background-color: red;
+	background-color: var(--clr-miss);
 }
 
 .miss::before {
 	content: "";
 	position: absolute;
 	animation: hit 0.2s ease-out forwards;
-	border: 1vmin solid white;
+	border: 1vmin solid var(--clr-miss);
 	border-radius: 100%;
 	width: 2vmin;
 	height: 2vmin;
@@ -605,11 +631,11 @@ body {
 
 @keyframes boom {
 	0% {
-		background-color: red;
+		background-color: var(--clr-hit);
 	}
 
 	100% {
-		background-color: hsl(0, 0%, 80%);
+		background-color: var(--clr-ship-bkgrnd);
 	}
 }
 
@@ -632,14 +658,16 @@ body {
 
 @media screen and (max-width: 992px) {
 	.container {
-	  flex-direction: column;
+		flex-direction: column;
 	}
+
 	.vertical-line {
 		display: none;
 	}
+
 	.horizontal-line {
 		display: flex;
-		border-top: 2px solid rgb(196, 196, 196);
+		border-top: 2px solid var(--clr-divider-line);
 		margin: 4%;
 	}
-  }
+}
