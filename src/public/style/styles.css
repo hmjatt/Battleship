@@ -91,6 +91,7 @@ body {
 
 .vertical-line {
 	border-right: 2px solid rgb(196, 196, 196);
+	/* margin: 0 6% 0 6%; */
 	/* height: ; */
 }
 
@@ -628,3 +629,17 @@ body {
 	opacity: 1;
 	text-decoration: none;
 }
+
+@media screen and (max-width: 992px) {
+	.container {
+	  flex-direction: column;
+	}
+	.vertical-line {
+		display: none;
+	}
+	.horizontal-line {
+		display: flex;
+		border-top: 2px solid rgb(196, 196, 196);
+		margin: 4%;
+	}
+  }
