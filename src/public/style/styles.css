@@ -1,9 +1,9 @@
 :root {
 	--clr-bkgrnd: #deeefb;
-	--clr-user-fleet: hsl(358, 79%, 70%);
-	--clr-computer-fleet: hsl(250, 31%, 50%);
+	/* --clr-user-fleet: #FCB5AC; */
+	/* --clr-computer-fleet: hsl(250, 31%, 50%); */
 	--clr-text-fleet: hsl(0, 0%, 90%);
-	--clr-grid-bkgrnd: #cde1f3;
+	--clr-grid-bkgrnd: #deeefb;
 	--clr-divider-line: rgb(196, 196, 196);
 	--clr-ship-bkgrnd: hsl(243, 33%, 61%);
 	--clr-btn: #333;
@@ -13,6 +13,7 @@
 	--clr-hit: white;
 	--clr-white: white;
 	--clr-bg-div: #B5E5CF;
+	--clr-bg-computer: #3D5B59;
 }
 
 body {
@@ -93,16 +94,17 @@ body {
 }
 
 #userFleet {
+	padding: 2%;
 	width: 50%;
-	background-color: var(--clr-user-fleet);
+	background-color: var(--clr-bg-div);
 	border-radius: 4px;
 	text-align: center;
-	color: var(--clr-text-fleet);
 }
 
 #computerFleet {
+	padding: 2%;
 	width: 50%;
-	background-color: var(--clr-computer-fleet);
+	background-color: var(--clr-bg-computer);
 	border-radius: 4px;
 	text-align: center;
 	color: var(--clr-text-fleet);
@@ -406,8 +408,7 @@ body {
 
 .grid-computer>.taken,
 .grid-computer>.boom {
-	background-color: var(--clr-grid-bkgrnd);
-	border-radius: 0 !important;
+	background-color: var(--clr-bg-computer);
 }
 
 .taken,
@@ -507,11 +508,6 @@ body {
 	border-top-right-radius: 1.0vmin;
 }
 
-/* #computer .carrier {
-	border-radius: 2.3vmin;
-	border-bottom-right-radius: 1.0vmin;
-	border-bottom-left-radius: 1.0vmin;
-} */
 
 .destroyer-container-vertical,
 .submarine-container-vertical,
@@ -526,9 +522,15 @@ body {
 
 .battleship-grid div {
 	margin: 1px;
-	border: 1px solid hsla(0, 0%, 100%, 0.409);
+	border: 1px solid var(--clr-bg-div);
 	background-color: var(--clr-bg-div);
 	border-radius: 5px;
+}
+
+.grid-computer div {
+	margin: 1px;
+	border: none;
+	background-color: var(--clr-bg-computer);
 }
 
 .destroyer-container {
