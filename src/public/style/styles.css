@@ -35,6 +35,10 @@ body {
 	box-sizing: border-box;
 }
 
+.home {
+	display: none;
+}
+
 .splash-container {
 	display: flex;
 	flex-direction: column;
@@ -630,8 +634,8 @@ body {
 	animation: hit 0.2s ease-out forwards;
 	/* border: 1vmin solid var(--clr-miss); */
 	border-radius: 100%;
-	width: 2vmin;
-	height: 2vmin;
+	/* width: 2vmin;
+	height: 2vmin; */
 }
 
 .boom {
@@ -675,6 +679,10 @@ body {
 .ready.active {
 	opacity: 1;
 	text-decoration: none;
+}
+
+#playAgain {
+	display: none;
 }
 
 @media screen and (max-width: 992px) {

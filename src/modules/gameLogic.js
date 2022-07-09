@@ -1,12 +1,7 @@
 //Catche DOM
-// import DOMInterface from "./DOMInterface.js";
 import {shipModule} from "./ships";
 import {gameboard} from "./gameboard";
 
-// document.addEventListener("DOMContentLoaded", DOMInterface);
-
-
-console.log("it works before separating modules");
 
 const gameLogic = {
     gameLogic() {
@@ -20,6 +15,7 @@ const gameLogic = {
         const turnDisplay = document.querySelector("#whose-go");
         const infoDisplay = document.querySelector("#info");
         const setupButtons = document.getElementById("setup-buttons");
+		const playAgain = document.getElementById("playAgain");
         
 
 		const destroyer = shipModule.ships('destroyer');
@@ -200,6 +196,9 @@ const gameLogic = {
                     );
                 }
             }
+
+			
+
             // console.log(draggedShip.lastChild.id);
             draggedShipLength = draggedShip.childNodes.length;
         }
@@ -285,6 +284,8 @@ const gameLogic = {
 
             displayGrid.removeChild(draggedShip);
             if (!displayGrid.querySelector(".ship")) allShipsPlaced = true;
+
+
         }
 
         function dragEnd() {
@@ -295,18 +296,17 @@ const gameLogic = {
         function playGameSingle() {
             if (isGameOver) return;
             if (currentPlayer === "user") {
-                turnDisplay.innerHTML = "Your Go";
+                turnDisplay.innerHTML = "Your Turn";
                 computerSquares.forEach((square) =>
                     square.addEventListener("click", function (e) {
                         shotFired = square.dataset.id;
                         revealSquare(square.classList);
-						// console.log(shotFired)
                     })
                 );
             }
             if (currentPlayer === "enemy") {
-                turnDisplay.innerHTML = "Computers Go";
-                setTimeout(enemyGo, 200);
+                turnDisplay.innerHTML = "Computer's Turn";
+                setTimeout(enemyGo, 350);
             }
         }
 
@@ -321,18 +321,7 @@ const gameLogic = {
                 `div[data-id='${shotFired}']`
             );
             const obj = Object.values(classList);
-			// if (
-            //     !enemySquare.classList.contains("boom") &&
-            //     currentPlayer === "user" &&
-            //     !isGameOver
-            // ) {
-            //     if (obj.includes("destroyer")) destroyerCount++;
-            //     if (obj.includes("submarine")) submarineCount++;
-            //     if (obj.includes("cruiser")) cruiserCount++;
-            //     if (obj.includes("battleship")) battleshipCount++;
-            //     if (obj.includes("carrier")) carrierCount++;
-            //     checkForWins();
-            // }
+		
             if (
                 !obj.includes("boom")
             ) {
@@ -397,7 +386,7 @@ const gameLogic = {
 				}
 			  }
             currentPlayer = "user";
-            turnDisplay.innerHTML = "Your Go";
+            turnDisplay.innerHTML = "Your Turn";
         }
 
         function checkForWins() {
@@ -473,7 +462,18 @@ const gameLogic = {
         function gameOver() {
             isGameOver = true;
             startButton.removeEventListener("click", playGameSingle);
+			playAgain.style.display = "flex";
+			playAgain.addEventListener("click", playAgainfxn());
         }
+
+		function playAgainfxn() {
+			playAgain.style.display = "none";
+			reloadPage();
+		}
+
+		function reloadPage() {
+			window.location.reload();
+		}
     },
 
     gameStart() {

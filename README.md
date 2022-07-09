@@ -140,6 +140,8 @@ Run Dev Server (Port 5500)
 
 4. Improve testing by reducing mocking.
 
+5. Make dragging of ships work on mobile.
+
 
 #### Quote
 
