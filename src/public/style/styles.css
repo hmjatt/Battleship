@@ -94,8 +94,8 @@ body {
 
 .taken.end.vertical,
 .taken.end.vertical::before {
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
 }
 
 .taken.start.horizontal,
@@ -106,8 +106,8 @@ body {
 
 .taken.end.horizontal,
 .taken.end.horizontal::before {
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
 }
 
 .taken.vertical::before,
@@ -175,22 +175,14 @@ body {
     border-radius: 2.3vmin;
 	border-bottom-right-radius: 1.0vmin;
 	border-top-right-radius: 1.0vmin; 
-
-	/* border-radius:20px/50% */
-	/* position: relative; */
 }
 
-/* .ship::before {
-	content: "";
-	position: absolute;
-	right: 90%;
-	top: calc(1.2vmin * var(--height, 1));
-	width: 0;
-	height: 0;
-	border-top: 20px solid transparent;
-	border-right: 40px solid red;
-	border-bottom: 20px solid transparent;
-} */
+.destroyer-container-vertical, .submarine-container-vertical, .cruiser-container-vertical, .battleship-container-vertical, .carrier-container-vertical {
+	border-radius: 2.3vmin;
+	border-bottom-right-radius: 1.0vmin;
+	border-bottom-left-radius: 1.0vmin;
+}
+
 
 .battleship-grid div {
     border: 1px solid hsla(0, 0%, 100%, 0.2);
