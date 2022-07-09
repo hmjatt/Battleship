@@ -73,7 +73,6 @@ Run Dev Server (Port 5500)
 		- [x] `ships()` method - is an array of objects which include ship's name, length and it's direction
 	- [x] Create `gameboard.js` module which contains `gameboard` factory function
 		- [x] `gameGrid()` method - is an array of 100 elements
-	- [ ] Create `player.js` module which calls `gameboard` factory function
 
 3. ### Test Game Logic
 	- [x] Test `ships.js` module
@@ -82,10 +81,10 @@ Run Dev Server (Port 5500)
 		- [x] Test `gridTest()`	method, it should return array of 100 elements
 
 4. ### Repeat Step 3 and 4
-	- Make sure all tests pass.
+	- [x] Make sure all tests pass.
 
 5. ### Create UI
-	- [ ] Update template.html for any changes
+	- [x] Update template.html for any changes
 	- [ ] Style HTML page(create style.css)
 	- [ ] Add Images and Fonts
 6. ### Finish the game
