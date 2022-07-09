@@ -85,7 +85,7 @@ Run Dev Server (Port 5500)
 
 5. ### Create UI
 	- [x] Update template.html for any changes
-	- [ ] Style HTML page(create style.css)
+	- [x] Style HTML page(create style.css)
 	- [ ] Add Images and Fonts
 6. ### Finish the game
 	- [ ] Allow users to place their ships
