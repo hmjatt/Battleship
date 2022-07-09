@@ -88,8 +88,9 @@ Run Dev Server (Port 5500)
 	- [x] Style HTML page(create style.css)
 	- [ ] Add Images and Fonts
 6. ### Finish the game
-	- [ ] Allow users to place their ships
-	- [ ] Use coordinates for each ship or implement drag/drop of ships.
+	- [x] Allow users to place their ships
+	- [x] Implement drag/drop of ships.
+	- [x] Make it Responsive
 
 
 ## Links to content that helped me with this project
