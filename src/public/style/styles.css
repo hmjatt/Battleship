@@ -7,7 +7,6 @@
 	--clr-miss-usergrid: rgb(99, 163, 251);
 	--clr-hit: rgb(244, 75, 24);
 	--clr-miss: rgb(221, 221, 221);
-	/* --clr-white: white; */
 	--clr-bg-div: rgb(140, 206, 195);
 	--clr-bg-computer: #384955;
 }
@@ -623,6 +622,10 @@ body {
 	flex-direction: column;
 }
 
+.setup-btns {
+	display: flex;
+}
+
 .setup-buttons {
 	display: flex;
 }
@@ -697,23 +700,6 @@ body {
 	}
 }
 
-.player {
-	margin: 2vmin;
-}
-
-.connected,
-.ready {
-	font-weight: normal;
-	opacity: 0.25;
-	text-decoration: line-through;
-}
-
-.connected.active,
-.ready.active {
-	opacity: 1;
-	text-decoration: none;
-}
-
 #playAgain {
 	display: none;
 }
@@ -779,6 +765,10 @@ body {
 
 	#start, #rotate {
 		display: none;
+	}
+
+	.autoplace {
+		margin-left: 10%;
 	}
 }
 
