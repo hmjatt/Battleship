@@ -44,7 +44,7 @@ const shipModule = {
         return { getName, getElement, getDirections };
     },
 
-    // 
+    //
 
     shipsTestMethod() {
         // width variable representing numbers of elements in gameboard

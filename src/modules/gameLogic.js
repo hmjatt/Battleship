@@ -1,13 +1,11 @@
 //Catche DOM
-import {shipModule} from "./ships";
-import {gameboard} from "./gameboard";
+import { shipModule } from "./ships";
+import { gameboard } from "./gameboard";
 import shipImg from "../public/images/ship.svg";
-
 
 const gameLogic = {
     gameLogic() {
-
-		const userGrid = document.querySelector(".grid-user");
+        const userGrid = document.querySelector(".grid-user");
         const computerGrid = document.querySelector(".grid-computer");
         const displayGrid = document.querySelector(".grid-display");
         const ships = document.querySelectorAll(".ship");
@@ -16,26 +14,23 @@ const gameLogic = {
         const turnDisplay = document.querySelector("#whose-go");
         const infoDisplay = document.querySelector("#info");
         const setupButtons = document.getElementById("setup-buttons");
-		const playAgain = document.getElementById("playAgain");
-		const gameContainer = document.getElementById("gameContainer");
-		const homePage = document.getElementById("homePage");
-		const startGameBtn = document.getElementById("startGame");
-		const shipImgEle = document.getElementById("imgHomePage");
+        const playAgain = document.getElementById("playAgain");
+        const gameContainer = document.getElementById("gameContainer");
+        const homePage = document.getElementById("homePage");
+        const startGameBtn = document.getElementById("startGame");
+        const shipImgEle = document.getElementById("imgHomePage");
 
-		shipImgEle.src = shipImg;
-        
+        shipImgEle.src = shipImg;
 
-		const destroyer = shipModule.ships('destroyer');
-		const submarine = shipModule.ships('submarine');
-		const cruiser = shipModule.ships('cruiser');
-		const battleship = shipModule.ships('battleship');
-		const carrier = shipModule.ships('carrier')
-		// const userGrid = DOMInterface.userGrid;
+        const destroyer = shipModule.ships("destroyer");
+        const submarine = shipModule.ships("submarine");
+        const cruiser = shipModule.ships("cruiser");
+        const battleship = shipModule.ships("battleship");
+        const carrier = shipModule.ships("carrier");
+        // const userGrid = DOMInterface.userGrid;
 
         const userSquares = [];
-		const computerSquares = [];
-
-        
+        const computerSquares = [];
 
         const gameMode = "singlePlayer";
         let isHorizontal = true;
@@ -48,21 +43,20 @@ const gameLogic = {
         let allShipsPlaced = false;
         let shotFired = -1;
 
-		//startGame
+        //startGame
 
-		// function startGame() {
-		// 	homePage.style.display = "flex";
-		// 	gameContainer.style.display = "none";
-			
-		// }
+        // function startGame() {
+        // 	homePage.style.display = "flex";
+        // 	gameContainer.style.display = "none";
 
-		startGameBtn.addEventListener("click", startSinglePlayer);
+        // }
 
-		// startGame();
+        startGameBtn.addEventListener("click", startSinglePlayer);
 
+        // startGame();
 
         //Ships
-		const shipArray = [
+        const shipArray = [
             {
                 name: destroyer.getName(),
                 directions: destroyer.getDirections(),
@@ -85,17 +79,14 @@ const gameLogic = {
             },
         ];
 
-
         gameboard.gameGrid(userGrid, userSquares);
         gameboard.gameGrid(computerGrid, computerSquares);
 
-        
-
         // Single Player
         function startSinglePlayer() {
-			homePage.style.display = "none";
+            homePage.style.display = "none";
 
-			gameContainer.style.display = "flex";
+            gameContainer.style.display = "flex";
 
             generate(shipArray[0]);
             generate(shipArray[1]);
@@ -115,7 +106,7 @@ const gameLogic = {
                 Math.random() * ship.directions.length
             );
             let current = ship.directions[randomDirection];
-			let direction;
+            let direction;
             if (randomDirection === 0) direction = 1;
             if (randomDirection === 1) direction = 10;
             let randomStart = Math.abs(
@@ -145,28 +136,46 @@ const gameLogic = {
             else generate(ship);
         }
 
-		
-
         //Rotate the ships
         function rotate() {
             if (isHorizontal) {
-				destroyer.getElement().classList.toggle('destroyer-container-vertical');
-				submarine.getElement().classList.toggle('submarine-container-vertical');
-				cruiser.getElement().classList.toggle('cruiser-container-vertical');
-				battleship.getElement().classList.toggle('battleship-container-vertical');
-				carrier.getElement().classList.toggle('carrier-container-vertical');
-				displayGrid.classList.toggle('isHorizontal');
+                destroyer
+                    .getElement()
+                    .classList.toggle("destroyer-container-vertical");
+                submarine
+                    .getElement()
+                    .classList.toggle("submarine-container-vertical");
+                cruiser
+                    .getElement()
+                    .classList.toggle("cruiser-container-vertical");
+                battleship
+                    .getElement()
+                    .classList.toggle("battleship-container-vertical");
+                carrier
+                    .getElement()
+                    .classList.toggle("carrier-container-vertical");
+                displayGrid.classList.toggle("isHorizontal");
                 isHorizontal = false;
                 // console.log(isHorizontal)
                 return;
             }
             if (!isHorizontal) {
-				destroyer.getElement().classList.toggle('destroyer-container-vertical');
-				submarine.getElement().classList.toggle('submarine-container-vertical');
-				cruiser.getElement().classList.toggle('cruiser-container-vertical');
-				battleship.getElement().classList.toggle('battleship-container-vertical');
-				carrier.getElement().classList.toggle('carrier-container-vertical');
-				displayGrid.classList.toggle('isHorizontal');
+                destroyer
+                    .getElement()
+                    .classList.toggle("destroyer-container-vertical");
+                submarine
+                    .getElement()
+                    .classList.toggle("submarine-container-vertical");
+                cruiser
+                    .getElement()
+                    .classList.toggle("cruiser-container-vertical");
+                battleship
+                    .getElement()
+                    .classList.toggle("battleship-container-vertical");
+                carrier
+                    .getElement()
+                    .classList.toggle("carrier-container-vertical");
+                displayGrid.classList.toggle("isHorizontal");
                 isHorizontal = true;
                 // console.log(isHorizontal)
                 return;
@@ -217,8 +226,6 @@ const gameLogic = {
                 }
             }
 
-			
-
             // console.log(draggedShip.lastChild.id);
             draggedShipLength = draggedShip.childNodes.length;
         }
@@ -260,7 +267,9 @@ const gameLogic = {
                 10 * lastShipIndex
             );
 
-            let selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1));
+            let selectedShipIndex = parseInt(
+                selectedShipNameWithIndex.substr(-1)
+            );
 
             shipLastId = shipLastId - selectedShipIndex;
             // console.log(shipLastId)
@@ -304,8 +313,6 @@ const gameLogic = {
 
             displayGrid.removeChild(draggedShip);
             if (!displayGrid.querySelector(".ship")) allShipsPlaced = true;
-
-
         }
 
         function dragEnd() {
@@ -341,10 +348,8 @@ const gameLogic = {
                 `div[data-id='${shotFired}']`
             );
             const obj = Object.values(classList);
-		
-            if (
-                !obj.includes("boom")
-            ) {
+
+            if (!obj.includes("boom")) {
                 if (obj.includes("destroyer")) destroyerCount++;
                 if (obj.includes("submarine")) submarineCount++;
                 if (obj.includes("cruiser")) cruiserCount++;
@@ -388,23 +393,26 @@ const gameLogic = {
                 if (userSquares[square].classList.contains("carrier"))
                     cpuCarrierCount++;
                 checkForWins();
-            } 
-			// else if (gameMode === "singlePlayer") enemyGo();
-			if (userSquares[square].classList.contains('boom') || userSquares[square].classList.contains('miss')) {
-				enemyGo();
-			  } else {
-				if (userSquares[square].classList.contains('taken')) {
-				//   const fondo = document.createElement('i');
-				//   fondo.classList.add('fas', 'fa-circle');
-				//   userSquares[square].appendChild(fondo);
-				  userSquares[square].classList.add('boom');
-				} else {
-				//   const fondo = document.createElement('i');
-				//   fondo.classList.add('fas', 'fa-circle');
-				//   userSquares[square].appendChild(fondo);
-				  userSquares[square].classList.add('miss');
-				}
-			  }
+            }
+            // else if (gameMode === "singlePlayer") enemyGo();
+            if (
+                userSquares[square].classList.contains("boom") ||
+                userSquares[square].classList.contains("miss")
+            ) {
+                enemyGo();
+            } else {
+                if (userSquares[square].classList.contains("taken")) {
+                    //   const fondo = document.createElement('i');
+                    //   fondo.classList.add('fas', 'fa-circle');
+                    //   userSquares[square].appendChild(fondo);
+                    userSquares[square].classList.add("boom");
+                } else {
+                    //   const fondo = document.createElement('i');
+                    //   fondo.classList.add('fas', 'fa-circle');
+                    //   userSquares[square].appendChild(fondo);
+                    userSquares[square].classList.add("miss");
+                }
+            }
             currentPlayer = "user";
             turnDisplay.innerHTML = "Your Turn";
         }
@@ -482,16 +490,16 @@ const gameLogic = {
         function gameOver() {
             isGameOver = true;
             startButton.removeEventListener("click", playGameSingle);
-			playAgain.style.display = "flex";
+            playAgain.style.display = "flex";
         }
 
-		playAgain.addEventListener("click", playAgainFxn);
+        playAgain.addEventListener("click", playAgainFxn);
 
-		function playAgainFxn() {
-			playAgain.style.display = "none";
-			gameContainer.style.display = "none";
-			homePage.style.display = "flex";
-		}
+        function playAgainFxn() {
+            playAgain.style.display = "none";
+            gameContainer.style.display = "none";
+            homePage.style.display = "flex";
+        }
     },
 
     gameStart() {
@@ -499,4 +507,4 @@ const gameLogic = {
     },
 };
 
-export {gameLogic};
+export { gameLogic };
