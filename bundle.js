@@ -507,6 +507,8 @@ var gameLogic = {
       playAgain.style.display = "none";
       gameContainer.style.display = "none";
       homePage.style.display = "flex";
+      location.reload();
+      return false;
     }
   },
   gameStart: function gameStart() {
