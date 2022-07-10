@@ -1,162 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title><%= htmlWebpackPlugin.options.title %></title>
-        <meta name="author" content="Harmeet Matharoo" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;900&display=swap"
-            rel="stylesheet"
-        />
-    </head>
 
-    <body>
-        <section class="home" id="homePage">
-            <section class="main">
-                <img id="imgHomePage" src="" alt="" />
-                <h1>Battleship</h1>
-                <h2>The Classic Strategy Guessing Game</h2>
-            </section>
-            <button id="startGame" class="btn">Start Game</button>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>
+		<%= htmlWebpackPlugin.options.title %>
+	</title>
+	<meta name="author" content="Harmeet Matharoo" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;900&display=swap" rel="stylesheet" />
+</head>
 
-            <section class="autor">
-                <p>Made with ❤ by Harmeet Matharoo</p>
-            </section>
-        </section>
+<body>
+	<section class="home" id="homePage">
+		<section class="main">
+			<img id="imgHomePage" src="" alt="" />
+			<h1>Battleship</h1>
+			<h2>The Classic Strategy Guessing Game</h2>
+		</section>
+		<button id="startGame" class="btn">Start Game</button>
 
-        <section id="gameContainer">
-            <div class="container">
-                <div id="user">
-                    <div id="userFleet">Your Fleet</div>
-                    <div class="user-grid-labels">
-                        <div class="blank-user"></div>
-                        <div class="A-user">A</div>
-                        <div class="B-user">B</div>
-                        <div class="C-user">C</div>
-                        <div class="D-user">D</div>
-                        <div class="E-user">E</div>
-                        <div class="F-user">F</div>
-                        <div class="G-user">G</div>
-                        <div class="H-user">H</div>
-                        <div class="I-user">I</div>
-                        <div class="J-user">J</div>
-                        <div class="user-1">1</div>
-                        <div class="user-2">2</div>
-                        <div class="user-3">3</div>
-                        <div class="user-4">4</div>
-                        <div class="user-5">5</div>
-                        <div class="user-6">6</div>
-                        <div class="user-7">7</div>
-                        <div class="user-8">8</div>
-                        <div class="user-9">9</div>
-                        <div class="user-10">10</div>
-                        <div class="battleship-grid grid-user"></div>
-                    </div>
-                </div>
+		<section class="autor">
+			<p>Made with ❤ by Harmeet Matharoo</p>
+		</section>
+	</section>
 
-                <div class="vertical-line"></div>
-                <div class="horizontal-line"></div>
-
-                <div id="computer">
-                    <div id="computerFleet">Opponent Fleet</div>
-                    <div class="computer-grid-labels">
-                        <div class="blank-computer"></div>
-                        <div class="A-computer">A</div>
-                        <div class="B-computer">B</div>
-                        <div class="C-computer">C</div>
-                        <div class="D-computer">D</div>
-                        <div class="E-computer">E</div>
-                        <div class="F-computer">F</div>
-                        <div class="G-computer">G</div>
-                        <div class="H-computer">H</div>
-                        <div class="I-computer">I</div>
-                        <div class="J-computer">J</div>
-                        <div class="computer-1">1</div>
-                        <div class="computer-2">2</div>
-                        <div class="computer-3">3</div>
-                        <div class="computer-4">4</div>
-                        <div class="computer-5">5</div>
-                        <div class="computer-6">6</div>
-                        <div class="computer-7">7</div>
-                        <div class="computer-8">8</div>
-                        <div class="computer-9">9</div>
-                        <div class="computer-10">10</div>
-                        <div class="battleship-grid grid-computer"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container hidden-info">
-				<div class="setup-btns">
-					<div class="setup-buttons" id="setup-buttons">
-						<button id="rotate" class="btn">Rotate Your Ships</button>
-					</div>
-					<div class="autoplace">
-						<button id="autoplaceBtn" class="btn">
-							Auto-Place Ships
-						</button>
-					</div>
+	<section id="gameContainer">
+		<div class="container">
+			<div id="user">
+				<div id="userFleet">Your Fleet</div>
+				<div class="user-grid-labels">
+					<div class="blank-user"></div>
+					<div class="A-user">A</div>
+					<div class="B-user">B</div>
+					<div class="C-user">C</div>
+					<div class="D-user">D</div>
+					<div class="E-user">E</div>
+					<div class="F-user">F</div>
+					<div class="G-user">G</div>
+					<div class="H-user">H</div>
+					<div class="I-user">I</div>
+					<div class="J-user">J</div>
+					<div class="user-1">1</div>
+					<div class="user-2">2</div>
+					<div class="user-3">3</div>
+					<div class="user-4">4</div>
+					<div class="user-5">5</div>
+					<div class="user-6">6</div>
+					<div class="user-7">7</div>
+					<div class="user-8">8</div>
+					<div class="user-9">9</div>
+					<div class="user-10">10</div>
+					<div class="battleship-grid grid-user"></div>
 				</div>
-                <h3 id="whose-go" class="info-text">Place Your Ships</h3>
-                <h3 id="info" class="info-text"></h3>
-                <button id="playAgain" class="btn">Play Again</button>
-            </div>
+			</div>
 
-            <div class="container">
-                <div class="grid-display">
-                    <div class="ship destroyer-container" draggable="true">
-                        <div id="destroyer-0"></div>
-                        <div id="destroyer-1"></div>
-                    </div>
-                    <div class="ship submarine-container" draggable="true">
-                        <div id="submarine-0"></div>
-                        <div id="submarine-1"></div>
-                        <div id="submarine-2"></div>
-                    </div>
-                    <div class="ship cruiser-container" draggable="true">
-                        <div id="cruiser-0"></div>
-                        <div id="cruiser-1"></div>
-                        <div id="cruiser-2"></div>
-                    </div>
-                    <div class="ship battleship-container" draggable="true">
-                        <div id="battleship-0"></div>
-                        <div id="battleship-1"></div>
-                        <div id="battleship-2"></div>
-                        <div id="battleship-3"></div>
-                    </div>
-                    <div class="ship carrier-container" draggable="true">
-                        <div id="carrier-0"></div>
-                        <div id="carrier-1"></div>
-                        <div id="carrier-2"></div>
-                        <div id="carrier-3"></div>
-                        <div id="carrier-4"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="links">
-            <div>
-                <ul>
-                    <li>
-                        <a
-                            href="https://github.com/hmjatt/Battleship"
-                            target="_blank"
-                            >Code</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="https://linkedin.com/in/harmeet-matharoo-0957a1107"
-                            target="_blank"
-                            >LinkedIn</a
-                        >
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </body>
+			<div class="vertical-line"></div>
+			<div class="horizontal-line"></div>
+
+			<div id="computer">
+				<div id="computerFleet">Opponent Fleet</div>
+				<div class="computer-grid-labels">
+					<div class="blank-computer"></div>
+					<div class="A-computer">A</div>
+					<div class="B-computer">B</div>
+					<div class="C-computer">C</div>
+					<div class="D-computer">D</div>
+					<div class="E-computer">E</div>
+					<div class="F-computer">F</div>
+					<div class="G-computer">G</div>
+					<div class="H-computer">H</div>
+					<div class="I-computer">I</div>
+					<div class="J-computer">J</div>
+					<div class="computer-1">1</div>
+					<div class="computer-2">2</div>
+					<div class="computer-3">3</div>
+					<div class="computer-4">4</div>
+					<div class="computer-5">5</div>
+					<div class="computer-6">6</div>
+					<div class="computer-7">7</div>
+					<div class="computer-8">8</div>
+					<div class="computer-9">9</div>
+					<div class="computer-10">10</div>
+					<div class="battleship-grid grid-computer"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container hidden-info">
+			<div class="setup-btns">
+				<div class="setup-buttons" id="setup-buttons">
+					<button id="rotate" class="btn">Rotate Your Ships</button>
+				</div>
+				<div class="autoplace">
+					<button id="autoplaceBtn" class="btn">
+						Auto-Place Ships
+					</button>
+				</div>
+			</div>
+			<h3 id="whose-go" class="info-text">Place Your Ships</h3>
+			<h3 id="info" class="info-text"></h3>
+			<button id="playAgain" class="btn">Play Again</button>
+		</div>
+
+		<div class="container">
+			<div class="grid-display">
+				<div class="ship destroyer-container" draggable="true">
+					<div id="destroyer-0"></div>
+					<div id="destroyer-1"></div>
+				</div>
+				<div class="ship submarine-container" draggable="true">
+					<div id="submarine-0"></div>
+					<div id="submarine-1"></div>
+					<div id="submarine-2"></div>
+				</div>
+				<div class="ship cruiser-container" draggable="true">
+					<div id="cruiser-0"></div>
+					<div id="cruiser-1"></div>
+					<div id="cruiser-2"></div>
+				</div>
+				<div class="ship battleship-container" draggable="true">
+					<div id="battleship-0"></div>
+					<div id="battleship-1"></div>
+					<div id="battleship-2"></div>
+					<div id="battleship-3"></div>
+				</div>
+				<div class="ship carrier-container" draggable="true">
+					<div id="carrier-0"></div>
+					<div id="carrier-1"></div>
+					<div id="carrier-2"></div>
+					<div id="carrier-3"></div>
+					<div id="carrier-4"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="links">
+		<div>
+			<ul>
+				<li>
+					<a href="https://github.com/hmjatt/Battleship" target="_blank"
+						class="link-btn link-swipe"><span>Code</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/harmeet-matharoo-0957a1107" target="_blank"
+						class="link-btn link-swipe"><span>LinkedIn</span></a>
+				</li>
+			</ul>
+		</div>
+	</section>
+</body>
+
 </html>
