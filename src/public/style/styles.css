@@ -69,26 +69,6 @@ body {
 	text-align: center;
 }
 
-.home button,
-#playAgain {
-	font-size: 2em;
-	background-color: var(--clr-btn-bkgrnd);
-	padding: 0.5em 1em;
-	outline: none;
-	border: none;
-	text-decoration: none;
-	cursor: pointer;
-	border-radius: 0.2em;
-	color: #333;
-	margin: 4%;
-}
-
-.home button:hover,
-.home button:focus,
-#playAgain:hover,
-#playAgain:focus {
-	background-color: var(--clr-btn-bkgrnd-fcs);
-}
 
 #gameContainer {
 	display: none;
@@ -652,6 +632,7 @@ body {
 }
 
 .info-text {
+	text-align: center;
 	margin: 1rem;
 }
 
@@ -737,7 +718,7 @@ body {
 	display: none;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 850px) {
 	html {
 		transition: all 1s ease;
 	}
@@ -783,13 +764,17 @@ body {
 	}
 
 	.miss::before {
-		width: 3vmin;
-		height: 3vmin;
+		width: 1vmin;
+		height: 1vmin;
 	}
 
 	#computerFleet,
 	#userFleet {
 		margin-left: 7%;
+	}
+
+	.grid-display {
+		display: none;
 	}
 }
 
@@ -811,10 +796,7 @@ body {
 		height: 4vmin;
 	}
 
-	.miss::before {
-		width: 2vmin;
-		height: 2vmin;
-	}
+	#play
 
 	.setup-buttons {
 		flex-direction: column;
@@ -822,5 +804,9 @@ body {
 
 	.setup-buttons button {
 		margin: 1%;
+	}
+
+	.links {
+		margin: 8%;
 	}
 }

@@ -328,8 +328,14 @@ const gameLogic = {
                 }
             } else return;
 
+			displayGrid.style.display = none;
+			autoPlaceShipsBtn.style.display = none;
+
             displayGrid.removeChild(draggedShip);
             if (!displayGrid.querySelector(".ship")) allShipsPlaced = true;
+			// if(allShipsPlaced == true) {
+				
+			// }
         }
 
         function dragEnd() {
@@ -340,10 +346,6 @@ const gameLogic = {
 		//Draw the user's ships in random locations
 		
 		function generateUserShips(ship) {
-
-		
-
-
 
             let randomDirection = Math.floor(
                 Math.random() * ship.directions.length
