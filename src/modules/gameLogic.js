@@ -18,7 +18,7 @@ const gameLogic = {
         const homePage = document.getElementById("homePage");
         const startGameBtn = document.getElementById("startGame");
         const shipImgEle = document.getElementById("imgHomePage");
-		const autoPlaceShipsBtn = document.getElementById("autoplaceBtn");
+        const autoPlaceShipsBtn = document.getElementById("autoplaceBtn");
 
         shipImgEle.src = shipImg;
 
@@ -27,7 +27,6 @@ const gameLogic = {
         const cruiser = shipModule.ships("cruiser");
         const battleship = shipModule.ships("battleship");
         const carrier = shipModule.ships("carrier");
-        // const userGrid = DOMInterface.userGrid;
 
         const userSquares = [];
         const computerSquares = [];
@@ -45,8 +44,6 @@ const gameLogic = {
 
         //startGame
         startGameBtn.addEventListener("click", startSinglePlayer);
-
-        // startGame();
 
         //Ships
         const shipArray = [
@@ -78,7 +75,6 @@ const gameLogic = {
         // Single Player
         function startSinglePlayer() {
             homePage.style.display = "none";
-
             gameContainer.style.display = "flex";
 
             generate(shipArray[0]);
@@ -87,18 +83,18 @@ const gameLogic = {
             generate(shipArray[3]);
             generate(shipArray[4]);
 
-			autoPlaceShipsBtn.addEventListener("click", () => {
-				generateUserShips(shipArray[0]);
-				generateUserShips(shipArray[1]);
-				generateUserShips(shipArray[2]);
-				generateUserShips(shipArray[3]);
-				generateUserShips(shipArray[4]);
+            autoPlaceShipsBtn.addEventListener("click", () => {
+                generateUserShips(shipArray[0]);
+                generateUserShips(shipArray[1]);
+                generateUserShips(shipArray[2]);
+                generateUserShips(shipArray[3]);
+                generateUserShips(shipArray[4]);
                 setupButtons.style.display = "none";
-				displayGrid.style.display = "none";
-				autoPlaceShipsBtn.style.display = "none";
+                displayGrid.style.display = "none";
+                autoPlaceShipsBtn.style.display = "none";
+                getShipsOnAutoGenerate();
                 playGameSingle();
-			});
-
+            });
         }
 
         //Draw the computers ships in random locations
@@ -137,10 +133,6 @@ const gameLogic = {
             else generate(ship);
         }
 
-
-		
-
-
         //Rotate the ships
         function rotate() {
             if (isHorizontal) {
@@ -161,7 +153,6 @@ const gameLogic = {
                     .classList.toggle("carrier-container-vertical");
                 displayGrid.classList.toggle("isHorizontal");
                 isHorizontal = false;
-                // console.log(isHorizontal)
                 return;
             }
             if (!isHorizontal) {
@@ -182,7 +173,6 @@ const gameLogic = {
                     .classList.toggle("carrier-container-vertical");
                 displayGrid.classList.toggle("isHorizontal");
                 isHorizontal = true;
-                // console.log(isHorizontal)
                 return;
             }
         }
@@ -216,7 +206,6 @@ const gameLogic = {
         ships.forEach((ship) =>
             ship.addEventListener("mousedown", (e) => {
                 selectedShipNameWithIndex = e.target.id;
-                // console.log(selectedShipNameWithIndex)
             })
         );
 
@@ -231,7 +220,6 @@ const gameLogic = {
                 }
             }
 
-            // console.log(draggedShip.lastChild.id);
             draggedShipLength = draggedShip.childNodes.length;
         }
 
@@ -245,6 +233,7 @@ const gameLogic = {
 
         function dragLeave() {
             // console.log('drag leave')
+            autoPlaceShipsBtn.style.display = "none";
         }
 
         function dragDrop() {
@@ -277,7 +266,6 @@ const gameLogic = {
             );
 
             shipLastId = shipLastId - selectedShipIndex;
-            // console.log(shipLastId)
 
             if (isHorizontal && !newNotAllowedHorizontal.includes(shipLastId)) {
                 for (let i = 0; i < draggedShipLength; i++) {
@@ -315,26 +303,23 @@ const gameLogic = {
                     );
                 }
             } else return;
-			
+
             displayGrid.removeChild(draggedShip);
             if (!displayGrid.querySelector(".ship")) allShipsPlaced = true;
-		
-			if (allShipsPlaced === true) {
-				rotateButton.style.display= "none";
-				autoPlaceShipsBtn.style.display = "none";
-				playGameSingle()
-			}
-        }
 
+            if (allShipsPlaced === true) {
+                rotateButton.style.display = "none";
+                autoPlaceShipsBtn.style.display = "none";
+                playGameSingle();
+            }
+        }
 
         function dragEnd() {
             // console.log('dragend')
         }
 
-		//Draw the user's ships in random locations
-		
-		function generateUserShips(ship) {
-
+        //Draw the user's ships in random locations
+        function generateUserShips(ship) {
             let randomDirection = Math.floor(
                 Math.random() * ship.directions.length
             );
@@ -349,8 +334,6 @@ const gameLogic = {
                 )
             );
 
-			
-
             const isTaken = current.some((index) =>
                 userSquares[randomStart + index].classList.contains("taken")
             );
@@ -361,32 +344,101 @@ const gameLogic = {
                 (index) => (randomStart + index) % width === 0
             );
 
-			
-
             if (!isTaken && !isAtRightEdge && !isAtLeftEdge)
                 current.forEach((index) =>
                     userSquares[randomStart + index].classList.add(
                         "taken",
                         ship.name
-                    ),
-					
+                    )
                 );
             else generateUserShips(ship);
-			// for (const key of Object.keys(userSquares)) {
-			// 	const val = userSquares[key];
-			// 	// use val
-			// 	const collection = val.getElementsByClassName("taken cruiser")
-			// 	console.log(typeof(val), val.classList.value("taken cruise"))
-			// 	// if(val.classList.value == "taken cruiser") {
-			// 	// 	console.log(val)
-			// 	// }
-			// }
-
-			
-			
         }
 
-		
+        function getShipsOnAutoGenerate() {
+            const destroyerAuto =
+                userGrid.getElementsByClassName("taken destroyer");
+            let destroyerAutoFirstEle = parseInt(destroyerAuto[0].dataset.id);
+            let destroyerAutoSecondEle = parseInt(destroyerAuto[1].dataset.id);
+            // if difference between id is 1 direction = horizontal || if it's 10 direction = vertical
+            if (destroyerAutoSecondEle - destroyerAutoFirstEle == 1) {
+                destroyerAuto[0].classList = "taken horizontal start destroyer";
+                destroyerAuto[1].classList = "taken horizontal end destroyer";
+            } else if (destroyerAutoSecondEle - destroyerAutoFirstEle == 10) {
+                destroyerAuto[0].classList = "taken vertical start destroyer";
+                destroyerAuto[1].classList = "taken vertical end destroyer";
+            }
+
+            const cruiserAuto =
+                userGrid.getElementsByClassName("taken cruiser");
+            let cruiserAutoFirstEle = parseInt(cruiserAuto[0].dataset.id);
+            let cruiserAutoSecondEle = parseInt(cruiserAuto[1].dataset.id);
+            if (cruiserAutoSecondEle - cruiserAutoFirstEle == 1) {
+                cruiserAuto[0].classList = "taken horizontal start cruiser";
+                cruiserAuto[1].classList = "taken horizontal undefined cruiser";
+                cruiserAuto[2].classList = "taken horizontal end cruiser";
+            } else if (cruiserAutoSecondEle - cruiserAutoFirstEle == 10) {
+                cruiserAuto[0].classList = "taken vertical start cruiser";
+                cruiserAuto[1].classList = "taken vertical undefined cruiser";
+                cruiserAuto[2].classList = "taken vertical end cruiser";
+            }
+
+            const submarineAuto =
+                userGrid.getElementsByClassName("taken submarine");
+            let submarineAutoFirstEle = parseInt(submarineAuto[0].dataset.id);
+            let submarineAutoSecondEle = parseInt(submarineAuto[1].dataset.id);
+            if (submarineAutoSecondEle - submarineAutoFirstEle == 1) {
+                submarineAuto[0].classList = "taken horizontal start submarine";
+                submarineAuto[1].classList =
+                    "taken horizontal undefined submarine";
+                submarineAuto[2].classList = "taken horizontal end submarine";
+            } else if (submarineAutoSecondEle - submarineAutoFirstEle == 10) {
+                submarineAuto[0].classList = "taken vertical start submarine";
+                submarineAuto[1].classList =
+                    "taken vertical undefined submarine";
+                submarineAuto[2].classList = "taken vertical end submarine";
+            }
+
+            const battleshipAuto =
+                userGrid.getElementsByClassName("taken battleship");
+            let battleshipAutoFirstEle = parseInt(battleshipAuto[0].dataset.id);
+            let battleshipAutoSecondEle = parseInt(
+                battleshipAuto[1].dataset.id
+            );
+            if (battleshipAutoSecondEle - battleshipAutoFirstEle == 1) {
+                battleshipAuto[0].classList =
+                    "taken horizontal start battleship";
+                battleshipAuto[1].classList =
+                    "taken horizontal undefined battleship";
+                battleshipAuto[2].classList =
+                    "taken horizontal undefined battleship";
+                battleshipAuto[3].classList = "taken horizontal end battleship";
+            } else if (battleshipAutoSecondEle - battleshipAutoFirstEle == 10) {
+                battleshipAuto[0].classList = "taken vertical start battleship";
+                battleshipAuto[1].classList =
+                    "taken vertical undefined battleship";
+                battleshipAuto[2].classList =
+                    "taken vertical undefined battleship";
+                battleshipAuto[3].classList = "taken vertical end battleship";
+            }
+
+            const carrierAuto =
+                userGrid.getElementsByClassName("taken carrier");
+            let carrierAutoFirstEle = parseInt(carrierAuto[0].dataset.id);
+            let carrierAutoSecondEle = parseInt(carrierAuto[1].dataset.id);
+            if (carrierAutoSecondEle - carrierAutoFirstEle == 1) {
+                carrierAuto[0].classList = "taken horizontal start carrier";
+                carrierAuto[1].classList = "taken horizontal undefined carrier";
+                carrierAuto[2].classList = "taken horizontal undefined carrier";
+                carrierAuto[3].classList = "taken horizontal undefined carrier";
+                carrierAuto[4].classList = "taken horizontal end carrier";
+            } else if (carrierAutoSecondEle - carrierAutoFirstEle == 10) {
+                carrierAuto[0].classList = "taken vertical start carrier";
+                carrierAuto[1].classList = "taken vertical undefined carrier";
+                carrierAuto[2].classList = "taken vertical undefined carrier";
+                carrierAuto[3].classList = "taken vertical undefined carrier";
+                carrierAuto[4].classList = "taken horizontal end carrier";
+            }
+        }
 
         // Game Logic for Single Player
         function playGameSingle() {

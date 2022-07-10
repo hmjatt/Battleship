@@ -40,8 +40,7 @@ var gameLogic = {
     var submarine = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships("submarine");
     var cruiser = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships("cruiser");
     var battleship = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships("battleship");
-    var carrier = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships("carrier"); // const userGrid = DOMInterface.userGrid;
-
+    var carrier = _ships__WEBPACK_IMPORTED_MODULE_0__.shipModule.ships("carrier");
     var userSquares = [];
     var computerSquares = [];
     var gameMode = "singlePlayer";
@@ -55,8 +54,7 @@ var gameLogic = {
     var allShipsPlaced = false;
     var shotFired = -1; //startGame
 
-    startGameBtn.addEventListener("click", startSinglePlayer); // startGame();
-    //Ships
+    startGameBtn.addEventListener("click", startSinglePlayer); //Ships
 
     var shipArray = [{
       name: destroyer.getName(),
@@ -94,6 +92,7 @@ var gameLogic = {
         setupButtons.style.display = "none";
         displayGrid.style.display = "none";
         autoPlaceShipsBtn.style.display = "none";
+        getShipsOnAutoGenerate();
         playGameSingle();
       });
     } //Draw the computers ships in random locations
@@ -129,8 +128,7 @@ var gameLogic = {
         battleship.getElement().classList.toggle("battleship-container-vertical");
         carrier.getElement().classList.toggle("carrier-container-vertical");
         displayGrid.classList.toggle("isHorizontal");
-        isHorizontal = false; // console.log(isHorizontal)
-
+        isHorizontal = false;
         return;
       }
 
@@ -141,8 +139,7 @@ var gameLogic = {
         battleship.getElement().classList.toggle("battleship-container-vertical");
         carrier.getElement().classList.toggle("carrier-container-vertical");
         displayGrid.classList.toggle("isHorizontal");
-        isHorizontal = true; // console.log(isHorizontal)
-
+        isHorizontal = true;
         return;
       }
     }
@@ -175,7 +172,7 @@ var gameLogic = {
     var draggedShipLength;
     ships.forEach(function (ship) {
       return ship.addEventListener("mousedown", function (e) {
-        selectedShipNameWithIndex = e.target.id; // console.log(selectedShipNameWithIndex)
+        selectedShipNameWithIndex = e.target.id;
       });
     });
 
@@ -187,8 +184,7 @@ var gameLogic = {
         if (draggedShip.childNodes[i].nodeType === 3) {
           draggedShip.childNodes[i].parentNode.removeChild(draggedShip.childNodes[i]);
         }
-      } // console.log(draggedShip.lastChild.id);
-
+      }
 
       draggedShipLength = draggedShip.childNodes.length;
     }
@@ -201,7 +197,9 @@ var gameLogic = {
       e.preventDefault();
     }
 
-    function dragLeave() {// console.log('drag leave')
+    function dragLeave() {
+      // console.log('drag leave')
+      autoPlaceShipsBtn.style.display = "none";
     }
 
     function dragDrop() {
@@ -214,7 +212,7 @@ var gameLogic = {
       var newNotAllowedHorizontal = notAllowedHorizontal.splice(0, 10 * lastShipIndex);
       var newNotAllowedVertical = notAllowedVertical.splice(0, 10 * lastShipIndex);
       var selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1));
-      shipLastId = shipLastId - selectedShipIndex; // console.log(shipLastId)
+      shipLastId = shipLastId - selectedShipIndex;
 
       if (isHorizontal && !newNotAllowedHorizontal.includes(shipLastId)) {
         for (var i = 0; i < draggedShipLength; i++) {
@@ -268,15 +266,83 @@ var gameLogic = {
       });
       if (!isTaken && !isAtRightEdge && !isAtLeftEdge) current.forEach(function (index) {
         return userSquares[randomStart + index].classList.add("taken", ship.name);
-      });else generateUserShips(ship); // for (const key of Object.keys(userSquares)) {
-      // 	const val = userSquares[key];
-      // 	// use val
-      // 	const collection = val.getElementsByClassName("taken cruiser")
-      // 	console.log(typeof(val), val.classList.value("taken cruise"))
-      // 	// if(val.classList.value == "taken cruiser") {
-      // 	// 	console.log(val)
-      // 	// }
-      // }
+      });else generateUserShips(ship);
+    }
+
+    function getShipsOnAutoGenerate() {
+      var destroyerAuto = userGrid.getElementsByClassName("taken destroyer");
+      var destroyerAutoFirstEle = parseInt(destroyerAuto[0].dataset.id);
+      var destroyerAutoSecondEle = parseInt(destroyerAuto[1].dataset.id); // if difference between id is 1 direction = horizontal || if it's 10 direction = vertical
+
+      if (destroyerAutoSecondEle - destroyerAutoFirstEle == 1) {
+        destroyerAuto[0].classList = "taken horizontal start destroyer";
+        destroyerAuto[1].classList = "taken horizontal end destroyer";
+      } else if (destroyerAutoSecondEle - destroyerAutoFirstEle == 10) {
+        destroyerAuto[0].classList = "taken vertical start destroyer";
+        destroyerAuto[1].classList = "taken vertical end destroyer";
+      }
+
+      var cruiserAuto = userGrid.getElementsByClassName("taken cruiser");
+      var cruiserAutoFirstEle = parseInt(cruiserAuto[0].dataset.id);
+      var cruiserAutoSecondEle = parseInt(cruiserAuto[1].dataset.id);
+
+      if (cruiserAutoSecondEle - cruiserAutoFirstEle == 1) {
+        cruiserAuto[0].classList = "taken horizontal start cruiser";
+        cruiserAuto[1].classList = "taken horizontal undefined cruiser";
+        cruiserAuto[2].classList = "taken horizontal end cruiser";
+      } else if (cruiserAutoSecondEle - cruiserAutoFirstEle == 10) {
+        cruiserAuto[0].classList = "taken vertical start cruiser";
+        cruiserAuto[1].classList = "taken vertical undefined cruiser";
+        cruiserAuto[2].classList = "taken vertical end cruiser";
+      }
+
+      var submarineAuto = userGrid.getElementsByClassName("taken submarine");
+      var submarineAutoFirstEle = parseInt(submarineAuto[0].dataset.id);
+      var submarineAutoSecondEle = parseInt(submarineAuto[1].dataset.id);
+
+      if (submarineAutoSecondEle - submarineAutoFirstEle == 1) {
+        submarineAuto[0].classList = "taken horizontal start submarine";
+        submarineAuto[1].classList = "taken horizontal undefined submarine";
+        submarineAuto[2].classList = "taken horizontal end submarine";
+      } else if (submarineAutoSecondEle - submarineAutoFirstEle == 10) {
+        submarineAuto[0].classList = "taken vertical start submarine";
+        submarineAuto[1].classList = "taken vertical undefined submarine";
+        submarineAuto[2].classList = "taken vertical end submarine";
+      }
+
+      var battleshipAuto = userGrid.getElementsByClassName("taken battleship");
+      var battleshipAutoFirstEle = parseInt(battleshipAuto[0].dataset.id);
+      var battleshipAutoSecondEle = parseInt(battleshipAuto[1].dataset.id);
+
+      if (battleshipAutoSecondEle - battleshipAutoFirstEle == 1) {
+        battleshipAuto[0].classList = "taken horizontal start battleship";
+        battleshipAuto[1].classList = "taken horizontal undefined battleship";
+        battleshipAuto[2].classList = "taken horizontal undefined battleship";
+        battleshipAuto[3].classList = "taken horizontal end battleship";
+      } else if (battleshipAutoSecondEle - battleshipAutoFirstEle == 10) {
+        battleshipAuto[0].classList = "taken vertical start battleship";
+        battleshipAuto[1].classList = "taken vertical undefined battleship";
+        battleshipAuto[2].classList = "taken vertical undefined battleship";
+        battleshipAuto[3].classList = "taken vertical end battleship";
+      }
+
+      var carrierAuto = userGrid.getElementsByClassName("taken carrier");
+      var carrierAutoFirstEle = parseInt(carrierAuto[0].dataset.id);
+      var carrierAutoSecondEle = parseInt(carrierAuto[1].dataset.id);
+
+      if (carrierAutoSecondEle - carrierAutoFirstEle == 1) {
+        carrierAuto[0].classList = "taken horizontal start carrier";
+        carrierAuto[1].classList = "taken horizontal undefined carrier";
+        carrierAuto[2].classList = "taken horizontal undefined carrier";
+        carrierAuto[3].classList = "taken horizontal undefined carrier";
+        carrierAuto[4].classList = "taken horizontal end carrier";
+      } else if (carrierAutoSecondEle - carrierAutoFirstEle == 10) {
+        carrierAuto[0].classList = "taken vertical start carrier";
+        carrierAuto[1].classList = "taken vertical undefined carrier";
+        carrierAuto[2].classList = "taken vertical undefined carrier";
+        carrierAuto[3].classList = "taken vertical undefined carrier";
+        carrierAuto[4].classList = "taken horizontal end carrier";
+      }
     } // Game Logic for Single Player
 
 
