@@ -7,8 +7,8 @@
 	--clr-miss-usergrid: rgb(99, 163, 251);
 	--clr-hit: rgb(244, 75, 24);
 	--clr-miss: rgb(221, 221, 221);
-	--clr-white: white;
-	--clr-bg-div: #7fd1ae;
+	/* --clr-white: white; */
+	--clr-bg-div: rgb(140, 206, 195);
 	--clr-bg-computer: #384955;
 }
 
@@ -488,7 +488,7 @@ body {
 .taken.horizontal::before {
 	content: "";
 	position: absolute;
-	border: 0.3vmin solid var(--clr-white);
+	border: 0.3vmin solid var(--clr-ship-bkgrnd);
 	top: -1px;
 	bottom: -1px;
 	left: -1px;

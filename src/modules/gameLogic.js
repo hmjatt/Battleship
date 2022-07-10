@@ -318,8 +318,7 @@ const gameLogic = {
 			
             displayGrid.removeChild(draggedShip);
             if (!displayGrid.querySelector(".ship")) allShipsPlaced = true;
-			
-			console.log(allShipsPlaced)
+		
 			if (allShipsPlaced === true) {
 				rotateButton.style.display= "none";
 				autoPlaceShipsBtn.style.display = "none";
@@ -327,7 +326,6 @@ const gameLogic = {
 			}
         }
 
-		console.log(allShipsPlaced)
 
         function dragEnd() {
             // console.log('dragend')
@@ -351,6 +349,8 @@ const gameLogic = {
                 )
             );
 
+			
+
             const isTaken = current.some((index) =>
                 userSquares[randomStart + index].classList.contains("taken")
             );
@@ -361,15 +361,32 @@ const gameLogic = {
                 (index) => (randomStart + index) % width === 0
             );
 
+			
+
             if (!isTaken && !isAtRightEdge && !isAtLeftEdge)
                 current.forEach((index) =>
                     userSquares[randomStart + index].classList.add(
                         "taken",
                         ship.name
-                    )
+                    ),
+					
                 );
             else generateUserShips(ship);
+			// for (const key of Object.keys(userSquares)) {
+			// 	const val = userSquares[key];
+			// 	// use val
+			// 	const collection = val.getElementsByClassName("taken cruiser")
+			// 	console.log(typeof(val), val.classList.value("taken cruise"))
+			// 	// if(val.classList.value == "taken cruiser") {
+			// 	// 	console.log(val)
+			// 	// }
+			// }
+
+			
+			
         }
+
+		
 
         // Game Logic for Single Player
         function playGameSingle() {
