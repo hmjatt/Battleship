@@ -3,7 +3,9 @@ A JavaScript game based on a classic "Battleship" game, implemented to practice 
 
 ## <!-- [Live Preview](https://hmjatt.github.io/Battleship/) -->
 
-<!-- ![This is an image]() -->
+![This is an image](https://github.com/hmjatt/hmjatt.github.io/blob/master/images/battleship/BattleShip-Page-1.png)
+
+![This is an image](https://github.com/hmjatt/hmjatt.github.io/blob/master/images/battleship/BattleShip-Page-2.png)
 
 
 This project is created to practice Test Driven Development(TDD) in JavaScript by creating a Battleship game using Jest(JS Testing Framework). Babel and Webpack are also used in this project 	:cityscape: Feel free to reach me at [Twitter](https://twitter.com/hmjatt/) :flying_disc:
