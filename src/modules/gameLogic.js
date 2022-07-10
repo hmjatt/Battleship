@@ -19,6 +19,7 @@ const gameLogic = {
         const homePage = document.getElementById("homePage");
         const startGameBtn = document.getElementById("startGame");
         const shipImgEle = document.getElementById("imgHomePage");
+		const autoPlaceShipsBtn = document.getElementById("autoplaceBtn");
 
         shipImgEle.src = shipImg;
 
@@ -94,6 +95,18 @@ const gameLogic = {
             generate(shipArray[3]);
             generate(shipArray[4]);
 
+			autoPlaceShipsBtn.addEventListener("click", () => {
+				generateUserShips(shipArray[0]);
+				generateUserShips(shipArray[1]);
+				generateUserShips(shipArray[2]);
+				generateUserShips(shipArray[3]);
+				generateUserShips(shipArray[4]);
+                setupButtons.style.display = "none";
+				displayGrid.style.display = "none";
+				autoPlaceShipsBtn.style.display = "none";
+                playGameSingle();
+			});
+
             startButton.addEventListener("click", () => {
                 setupButtons.style.display = "none";
                 playGameSingle();
@@ -135,6 +148,10 @@ const gameLogic = {
                 );
             else generate(ship);
         }
+
+
+		
+
 
         //Rotate the ships
         function rotate() {
@@ -318,6 +335,53 @@ const gameLogic = {
         function dragEnd() {
             // console.log('dragend')
         }
+
+
+		//Draw the user's ships in random locations
+		
+		function generateUserShips(ship) {
+
+		
+
+
+
+            let randomDirection = Math.floor(
+                Math.random() * ship.directions.length
+            );
+            let current = ship.directions[randomDirection];
+            let direction;
+            if (randomDirection === 0) direction = 1;
+            if (randomDirection === 1) direction = 10;
+            let randomStart = Math.abs(
+                Math.floor(
+                    Math.random() * userSquares.length -
+                        ship.directions[0].length * direction
+                )
+            );
+
+            const isTaken = current.some((index) =>
+                userSquares[randomStart + index].classList.contains("taken")
+            );
+            const isAtRightEdge = current.some(
+                (index) => (randomStart + index) % width === width - 1
+            );
+            const isAtLeftEdge = current.some(
+                (index) => (randomStart + index) % width === 0
+            );
+
+            if (!isTaken && !isAtRightEdge && !isAtLeftEdge)
+                current.forEach((index) =>
+                    userSquares[randomStart + index].classList.add(
+                        "taken",
+                        ship.name
+                    )
+                );
+            else generateUserShips(ship);
+        }
+
+
+
+
 
         // Game Logic for Single Player
         function playGameSingle() {
