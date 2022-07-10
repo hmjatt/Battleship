@@ -1,7 +1,7 @@
 # Battleship
 A JavaScript game based on a classic "Battleship" game, implemented to practice Test Driven Development. 
 
-## <!-- [Live Preview](https://hmjatt.github.io/Battleship/) -->
+## [Live Preview](https://hmjatt.github.io/Battleship/)
 
 ![This is an image](https://github.com/hmjatt/hmjatt.github.io/blob/master/images/battleship/BattleShip-Page-1.png)
 
@@ -30,7 +30,9 @@ This project is created to practice Test Driven Development(TDD) in JavaScript b
 
 ## Usage
 
-Run Dev Server (Port 5500)
+1. Compile on your machine
+	
+	Run Dev Server (Port 5500)
 
     ```
     npm install
@@ -46,7 +48,10 @@ Run Dev Server (Port 5500)
 	npm test // run tests
 
 	```
+2. Pre-Compiled(Easy to use)
 
+	Just open `index.html` in dist folder
+	
 ## Steps I followed to complete this project
 
 1. ### Setup Environment Setup
