@@ -9,7 +9,7 @@
 	--clr-miss: rgb(221, 221, 221);
 	--clr-white: white;
 	--clr-bg-div: #7FD1AE;
-	--clr-bg-computer: #00C6B0;
+	--clr-bg-computer: #384955;
 }
 
 html {
@@ -19,6 +19,7 @@ html {
 
 body {
 	margin: 0;
+	padding: 2%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
