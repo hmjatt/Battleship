@@ -39,7 +39,7 @@ module.exports = {
             title: "Battleship Game",
             filename: "index.html",
             template: "./src/public/template.html",
-            favicon: "./src/public/images/favicon.svg",
+            favicon: "./src/public/images/ship.svg",
         }),
     ],
 };

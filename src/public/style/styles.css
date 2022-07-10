@@ -36,6 +36,10 @@ body {
 	box-sizing: border-box;
 }
 
+#imgHomePage {
+	max-width: 40%;
+}
+
 .links {
 	border: 2px dashed rgb(43, 50, 58);
 	margin: 1%;

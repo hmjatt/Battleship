@@ -1,6 +1,7 @@
 //Catche DOM
 import {shipModule} from "./ships";
 import {gameboard} from "./gameboard";
+import shipImg from "../public/images/ship.svg";
 
 
 const gameLogic = {
@@ -19,6 +20,9 @@ const gameLogic = {
 		const gameContainer = document.getElementById("gameContainer");
 		const homePage = document.getElementById("homePage");
 		const startGameBtn = document.getElementById("startGame");
+		const shipImgEle = document.getElementById("imgHomePage");
+
+		shipImgEle.src = shipImg;
         
 
 		const destroyer = shipModule.ships('destroyer');
