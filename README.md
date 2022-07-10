@@ -137,17 +137,17 @@ This project is created to practice Test Driven Development(TDD) in JavaScript b
 
 ## Future Changes/Fixes
 
-1. Polish the intelligence of computer and allow it to place adjacent slots after getting a `hit`.
+- [ ] Polish the intelligence of computer and allow it to place adjacent slots after getting a `hit`.
 
-2. Create a 2 player option
-	- Let users take turn by passing the device back and forth.
-	- implement a `pass device` screen so players don't see each other's boards!
+- [ ] Create a 2 player option
+	-[ ] Let users take turn by passing the device back and forth.
+	-[ ] implement a `pass device` screen so players don't see each other's boards!
 
-3. Reduce tight coupling of code in `gameLogic.js` and divide code into smaller modules.
+- [ ] Reduce tight coupling of code in `gameLogic.js` and divide code into smaller modules.
 
-4. Improve testing by reducing mocking.
+- [ ] Improve testing by reducing mocking.
 
-5. Make dragging of ships work on mobile.
+- [x] Add a button to Auto-Place ships.
 
 
 #### Quote
