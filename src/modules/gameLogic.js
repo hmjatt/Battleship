@@ -9,7 +9,6 @@ const gameLogic = {
         const computerGrid = document.querySelector(".grid-computer");
         const displayGrid = document.querySelector(".grid-display");
         const ships = document.querySelectorAll(".ship");
-        const startButton = document.querySelector("#start");
         const rotateButton = document.querySelector("#rotate");
         const turnDisplay = document.querySelector("#whose-go");
         const infoDisplay = document.querySelector("#info");
@@ -45,13 +44,6 @@ const gameLogic = {
         let shotFired = -1;
 
         //startGame
-
-        // function startGame() {
-        // 	homePage.style.display = "flex";
-        // 	gameContainer.style.display = "none";
-
-        // }
-
         startGameBtn.addEventListener("click", startSinglePlayer);
 
         // startGame();
@@ -107,10 +99,6 @@ const gameLogic = {
                 playGameSingle();
 			});
 
-            startButton.addEventListener("click", () => {
-                setupButtons.style.display = "none";
-                playGameSingle();
-            });
         }
 
         //Draw the computers ships in random locations
@@ -327,21 +315,23 @@ const gameLogic = {
                     );
                 }
             } else return;
-
-			displayGrid.style.display = none;
-			autoPlaceShipsBtn.style.display = none;
-
+			
             displayGrid.removeChild(draggedShip);
             if (!displayGrid.querySelector(".ship")) allShipsPlaced = true;
-			// if(allShipsPlaced == true) {
-				
-			// }
+			
+			console.log(allShipsPlaced)
+			if (allShipsPlaced === true) {
+				rotateButton.style.display= "none";
+				autoPlaceShipsBtn.style.display = "none";
+				playGameSingle()
+			}
         }
+
+		console.log(allShipsPlaced)
 
         function dragEnd() {
             // console.log('dragend')
         }
-
 
 		//Draw the user's ships in random locations
 		
@@ -380,10 +370,6 @@ const gameLogic = {
                 );
             else generateUserShips(ship);
         }
-
-
-
-
 
         // Game Logic for Single Player
         function playGameSingle() {
@@ -446,8 +432,6 @@ const gameLogic = {
             if (gameMode === "singlePlayer")
                 square = Math.floor(Math.random() * userSquares.length);
             if (!userSquares[square].classList.contains("boom")) {
-                // const hit = userSquares[square].classList.contains("taken");
-                // userSquares[square].classList.add(hit ? "boom" : "miss");
                 if (userSquares[square].classList.contains("destroyer"))
                     cpuDestroyerCount++;
                 if (userSquares[square].classList.contains("submarine"))
@@ -460,7 +444,6 @@ const gameLogic = {
                     cpuCarrierCount++;
                 checkForWins();
             }
-            // else if (gameMode === "singlePlayer") enemyGo();
             if (
                 userSquares[square].classList.contains("boom") ||
                 userSquares[square].classList.contains("miss")
@@ -468,14 +451,8 @@ const gameLogic = {
                 enemyGo();
             } else {
                 if (userSquares[square].classList.contains("taken")) {
-                    //   const fondo = document.createElement('i');
-                    //   fondo.classList.add('fas', 'fa-circle');
-                    //   userSquares[square].appendChild(fondo);
                     userSquares[square].classList.add("boom");
                 } else {
-                    //   const fondo = document.createElement('i');
-                    //   fondo.classList.add('fas', 'fa-circle');
-                    //   userSquares[square].appendChild(fondo);
                     userSquares[square].classList.add("miss");
                 }
             }
@@ -485,7 +462,6 @@ const gameLogic = {
 
         function checkForWins() {
             let enemy = "computer";
-            // if (gameMode === "multiPlayer") enemy = "enemy";
             if (destroyerCount === 2) {
                 infoDisplay.innerHTML = `You sunk the ${enemy}'s destroyer`;
                 destroyerCount = 10;
@@ -555,7 +531,6 @@ const gameLogic = {
 
         function gameOver() {
             isGameOver = true;
-            startButton.removeEventListener("click", playGameSingle);
             playAgain.style.display = "flex";
         }
 
