@@ -341,7 +341,7 @@ var gameLogic = {
         carrierAuto[1].classList = "taken vertical undefined carrier";
         carrierAuto[2].classList = "taken vertical undefined carrier";
         carrierAuto[3].classList = "taken vertical undefined carrier";
-        carrierAuto[4].classList = "taken horizontal end carrier";
+        carrierAuto[4].classList = "taken vertical end carrier";
       }
     } // Game Logic for Single Player
 
