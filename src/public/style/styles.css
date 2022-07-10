@@ -35,12 +35,32 @@ body {
 	box-sizing: border-box;
 }
 
+.links {
+	border: 2px dashed rgb(43, 50, 58);
+	margin: 1%;
+	width: 60%;
+	font-size: 1.5em;
+}
+
+.links ul{
+	list-style-type: none;
+	display: flex;
+	padding: 0;
+	/* flex-direction: column; */
+	justify-content: space-around;
+}
+
+.links a{
+	text-decoration: none;
+	color: #333;
+}
+
 .home {
 	display: flex;
 	flex-direction: column;
 	align-self: center;
 	justify-content: center;
-	height: 100vh;
+	height: 60vh;
 	text-align: center;
 }
 
