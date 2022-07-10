@@ -140,8 +140,8 @@ This project is created to practice Test Driven Development(TDD) in JavaScript b
 - [ ] Polish the intelligence of computer and allow it to place adjacent slots after getting a `hit`.
 
 - [ ] Create a 2 player option
-	-[ ] Let users take turn by passing the device back and forth.
-	-[ ] implement a `pass device` screen so players don't see each other's boards!
+	- [ ] Let users take turn by passing the device back and forth.
+	- [ ] implement a `pass device` screen so players don't see each other's boards!
 
 - [ ] Reduce tight coupling of code in `gameLogic.js` and divide code into smaller modules.
 
